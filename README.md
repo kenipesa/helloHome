@@ -42,8 +42,13 @@
       * [aboutUs](./src/main/resources/templates/aboutUs.html)
       * [error](./src/main/resources/templates/error.html)
       * [index](./src/main/resources/templates/index.html)
+      * [myProfile](./src/main/resources/templates/index.html)
+      * [register](./src/main/resources/templates/index.html)
     * templates/fragments/
+      * [footer](./src/main/resources/templates/fragments/footer.html)
+      * [header](./src/main/resources/templates/fragments/header.html)
       * [navBar](./src/main/resources/templates/fragments/navBar.html)
+      * [searchResults](./src/main/resources/templates/fragments/searchResults.html)
 * src/test/
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
