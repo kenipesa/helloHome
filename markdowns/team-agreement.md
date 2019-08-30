@@ -41,7 +41,7 @@
 
 ### Git Process:
 * The repo will be set to push to a “dev” branch as the standard push - “master” will only be used for deployable and tested features. This will ensure that only completed features will be added to the master and the application will not crash with “test” features.
-* All branches will be appropriately named - styled as “<first initial><last initial>_<branch>”
+* All branches will be appropriately named - styled as “{first initial}{last initial}_{feature}”
   * Ex: np_ApplicationUser
 * All members will push working branches to the repo at the end of each working day - they will be merged as a group to ensure merge conflicts can be resolved.
 * All merge requests will require one other member to review before it can be merged into the dev branch
