@@ -38,8 +38,8 @@
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
 
-<a name="resources></a>
+<a name="resources"></a>
 ### Resources
 
 
-**[Return to Top](#top)
+**[Return to Top](#top)**
