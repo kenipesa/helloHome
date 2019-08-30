@@ -12,8 +12,8 @@
 
 ### Members <a name="members"></a>
 * Kevin Couture
-* Peter Lee
 * Nicholas Paro
+* Peter Lee
 * Sapana Poudel
 
 ### Project Links <a name="pLinks"></a>
@@ -24,12 +24,24 @@
 * src/main/java/
     * [HelloHomeApplication](./src/main/java/com/kenipesa/helloHome/HelloHomeApplication.java)
     * config/
+      * [UserDetailsServiceImpl](./src/main/java/com/kenipesa/helloHome/config/UserDetailsServiceImpl.java)
+      * [WebSecurityConfig](./src/main/java/com/kenipesa/helloHome/config/WebSecurityConfig.java)
     * controllers/
+      * [ApplicationUserController](./src/main/java/com/kenipesa/helloHome/controllers/ApplicationUserController.java)
+      * [HomeController](./src/main/java/com/kenipesa/helloHome/controllers/HomeController.java)
     * models/
+      * [ApplicationUser](./src/main/java/com/kenipesa/helloHome/models/ApplicationUser.java)
+      * [ApplicationUserRepository](./src/main/java/com/kenipesa/helloHome/models/ApplicationUserRepository.java)
+
 * src/main/resources/
     * static/
+      * [styles](./src/main/resources/static/styles.css)
     * templates/
+      * [aboutUs](./src/main/resources/templates/aboutUs.html)
+      * [error](./src/main/resources/templates/error.html)
+      * [index](./src/main/resources/templates/index.html)
     * templates/fragments/
+      * [navBar](./src/main/resources/templates/fragments/navBar.html)
 * src/test/
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
