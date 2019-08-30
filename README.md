@@ -30,7 +30,7 @@
     * static/
     * templates/
     * templates/fragments/
-* src/test
+* src/test/
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
 
