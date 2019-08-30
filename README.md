@@ -42,8 +42,7 @@
       * [index](./src/main/resources/templates/index.html)
     * templates/fragments/
       * [navBar](./src/main/resources/templates/fragments/navBar.html)
-
-* src/test
+* src/test/
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
 
