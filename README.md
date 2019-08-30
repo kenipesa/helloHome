@@ -21,14 +21,15 @@
 * [Trello Board](https://trello.com/b/FJsnmXIV/kenipesa)
 
 ### File Structure <a name="files"></a>
-* src/main
-  * java/
+* src/main/java/
     * [HelloHomeApplication](./src/main/java/com/kenipesa/helloHome/HelloHomeApplication.java)
-  * java/config
-  * java/controllers
-  * java/models
-  * resources/static
-  * resources/templates
+    * config/
+    * controllers/
+    * models/
+* src/main/resources/
+    * static/
+    * templates/
+    * templates/fragments/
 * src/test
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
