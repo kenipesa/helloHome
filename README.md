@@ -1,5 +1,4 @@
-<a name="top"></a>
-# Hello Home
+# Hello Home <a name="top"></a>
 
 ### Table of Contents
 * [About](#about)
@@ -8,24 +7,20 @@
 * [File Structure](#files)
 * [Resources](#resources)
 
-<a name="about"></a>
-### About
+### About <a name="about"></a>
 
 
-<a name="members"></a>
-### Members
+### Members <a name="members"></a>
 * Kevin Couture
 * Peter Lee
 * Nicholas Paro
 * Sapana Poudel
 
-<a name="pLinks"></a>
-### Project Links
+### Project Links <a name="pLinks"></a>
 * [Wireframe](https://app.moqups.com/RQTQyO8RUn/view/page/ad64222d5)
 * [Trello Board](https://trello.com/b/FJsnmXIV/kenipesa)
 
-<a name="files"></a>
-### File Structure
+### File Structure <a name="files"></a>
 * src/main
   * java/
     * [HelloHomeApplication](./src/main/java/com/kenipesa/helloHome/HelloHomeApplication.java)
@@ -38,8 +33,7 @@
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
 
-<a name="resources"></a>
-### Resources
+### Resources <a name="resources"></a>
 
 
 **[Return to Top](#top)**
