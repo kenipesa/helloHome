@@ -4,24 +4,28 @@ Estimations based on a 1-5 scale - 1 being the easiest, 5 being the hardest
 | **As a developer, I want to...** | |
 |:-----------------------------|:---|
 | **Story** | **Estimation** |
+| DRY and readable code.| 2|
+| have the database maintain a one-to-many relationship between a user and their searches and a one-to-many relationship between a search and the homes found.| 3|
+| the databases to be secure, stable, and not storing things in excess.| 2|
+| to be able to accurately pull from the requested APIs and store the requested information to the correct users.| 4|
 | users to be able to easily and quickly get the results based on required inputs.| 4|
 | users to feel that this information is reasonable, founded and trustworthy enough.| 5|
-| users to be able to save recent searches and be able to view their results again later.| 2|
-| the databases to be secure, stable and not storing things in excess.| 2|
-| DRY and readable code.| 2|
-| to be able to accurately pull from the requested APIs and store the requested information to the correct users.| 4|
-| to ensure that there is data validation to ensure the user is entering the correct values to be stored.| 1|
-| to authenticate/validate users.| 2|
+| to authenticate and validate users.| 4|
 
 | **As a user, I want to...** | |
 |:----------------------------|:--- |
 | **Story** | **Estimation** |
+| be able to register for the HelloHome web app.| |
+| be able to login to HelloHome, have my information stored, and be able to continue adding new searches.| |
+| be able to update my information to reflect changes in my annual income and monthly expenses.| |
+| have easily understood instructions on what information I can enter.| |
 | the site to be easy to look at.| 1|
-| the site to be simple to navigate and interact with.| 1|
-| the information from this app to be relevant, useful and reasonable.| 3|
-| the ability to view the results clearly.| 3|
+| be able to easily navigate from one part of the site to another.| 1|
+| have a profile page where I can see all of my basic information and be able to review my previous searches.| |
+| the information from this app to be relevant, useful, and reasonable.| 3|
+| have cleanly formatted results which are easy to understand and display only relevant information to my needs.| 3|
 | the site to be secure and have my information protected.| 4|
-| as a home buyer, I want to be able to get multiple options within my budget.| 2|
+| be able to get multiple options for the searched area that are within my budget.| 2|
 
 | **As an other, I want to...** | |
 |:----------------------------|:--- |
