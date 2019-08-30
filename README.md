@@ -17,8 +17,10 @@
 * Sapana Poudel
 
 ### Project Links <a name="pLinks"></a>
-* [Wireframe](https://app.moqups.com/RQTQyO8RUn/view/page/ad64222d5)
 * [Trello Board](https://trello.com/b/FJsnmXIV/kenipesa)
+* [Wireframe](https://app.moqups.com/RQTQyO8RUn/view/page/ad64222d5)
+* [Team Agreement](./markdowns/team-agreement.md)
+* [User Stories](./markdowns/user-stories.md)
 
 ### File Structure <a name="files"></a>
 * src/main/java/
