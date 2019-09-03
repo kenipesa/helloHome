@@ -15,6 +15,7 @@
 		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
 		<main class="container">
 			<h1>Profile</h1>
+			<p><a href="/user/updateExpenses">Update Profile</a></p>
 			<ul>
 				<li class="list-group-item"><b>Username:</b> <span th:text="${currentUser.username}"></span></li>
 				<li class="list-group-item"><b>First Name:</b> <span th:text="${currentUser.firstName}"></span></li>

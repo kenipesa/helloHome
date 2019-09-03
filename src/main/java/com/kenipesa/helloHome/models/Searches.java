@@ -13,6 +13,8 @@ public class Searches {
 
     @ManyToOne
     ApplicationUser buyer;
+    
+    public Searches () {}
 
     public Searches(String city, String state, ApplicationUser buyer) {
         this.city = city;

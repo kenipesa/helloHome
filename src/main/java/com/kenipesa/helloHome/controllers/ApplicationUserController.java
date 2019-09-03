@@ -51,6 +51,34 @@ public class ApplicationUserController {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
     Expenses expenses = new Expenses(annualIncome, housePayment, entertainment, utilities, insurance, vehicle, misc,
      applicationUser);
+    applicationUser.setExpense(expenses);
+    expensesRepository.save(expenses);
+    applicationUserRepository.save(applicationUser);
+    return new RedirectView("/user/profile");
+  }
+  
+  @GetMapping("/user/updateExpenses")
+  public String getUpdateExpenses(Principal p, Model m) {
+    ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
+    Expenses expenses = expensesRepository.findByBuyer(applicationUser);
+    m.addAttribute("expenses", expenses);
+    m.addAttribute("currentUser", applicationUser);
+    return "updateExpenses";
+  }
+  
+  @PostMapping("/user/updateExpenses")
+  public RedirectView createUpdateExpenses(int annualIncome, int housePayment, int entertainment, int utilities,
+                                           int insurance, int vehicle, int misc, Principal p) {
+    ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
+    Expenses expenses = expensesRepository.findByBuyer(applicationUser);
+    expenses.setId(expenses.getId());
+    expenses.setAnnualIncome(annualIncome);
+    expenses.setHousePayment(housePayment);
+    expenses.setEntertainment(entertainment);
+    expenses.setUtilities(utilities);
+    expenses.setInsurance(insurance);
+    expenses.setVehicle(vehicle);
+    expenses.setMisc(misc);
     expensesRepository.save(expenses);
     return new RedirectView("/user/profile");
   }
@@ -58,7 +86,7 @@ public class ApplicationUserController {
   @GetMapping("/user/profile")
   public String getUserProfile(Principal p, Model m) {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
-    Expenses expenses = expensesRepository.findById(applicationUser.getId()).get();
+    Expenses expenses = expensesRepository.findByBuyer(applicationUser);
     m.addAttribute("currentUser", applicationUser);
     m.addAttribute("expenses", expenses);
     return "profile";

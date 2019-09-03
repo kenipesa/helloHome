@@ -16,7 +16,7 @@ public class Expenses {
     int vehicle;
     int misc;
 
-    @OneToOne
+    @OneToOne(mappedBy = "expense", cascade = CascadeType.ALL)
     ApplicationUser buyer;
     
     public Expenses() {}
@@ -33,8 +33,16 @@ public class Expenses {
         this.buyer = buyer;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public Long getId() {
         return id;
+    }
+    
+    public void setAnnualIncome(int annualIncome) {
+        this.annualIncome = annualIncome;
     }
     
     public int getAnnualIncome() {
