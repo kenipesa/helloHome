@@ -6,13 +6,15 @@ public class ResultObj {
     String neighborhood;
     String lat;
     String lng;
+    String url;
 
-    public ResultObj (int medPrice, String marketType, String neighborhood, String lat, String lng) {
+    public ResultObj (int medPrice, String marketType, String neighborhood, String lat, String lng, String url) {
         this.medianPrice = medPrice;
         this.marketType = marketType;
         this.neighborhood = neighborhood;
         this.lat = lat;
         this.lng = lng;
+        this.url = url;
     }
 
     public String toString() {
