@@ -2,9 +2,20 @@ package com.kenipesa.helloHome.libraries;
 
 import org.json.JSONObject;
 import org.json.XML;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/// TEMP ///
+class Result{
+
+}
+////////////
 
 public class ZillowAPILib {
     String zws_id = "X1-ZWz1hbob58fl6z_aj9j5";
@@ -35,13 +46,30 @@ public class ZillowAPILib {
         try{ // Convert XML Response to JSON
             xmlJSONObj = XML.toJSONObject(response.getBody().toString());
             String jsonPrettyPrintString = xmlJSONObj.toString(4);
-            System.out.println(jsonPrettyPrintString);
+//            System.out.println(jsonPrettyPrintString);
         }
         catch(Exception e) {
             System.err.println(e);
         }
 
         return xmlJSONObj;
+    }
+
+    public static List<Result> getFilteredResults(JSONObject webResponse) {
+        List<Result> resList = new ArrayList<>();
+        JSONObject unFiltered = webResponse.getJSONObject("RegionChildren:regionchildren")
+                    .getJSONObject("response")
+                    .getJSONObject("list");
+        int neighborhoodCount = (int) unFiltered.get("count");
+        //TODO: Calculate affordability
+        String url;
+        for(int i = 0; i < neighborhoodCount; i++) {
+            url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
+            // TODO: Scrape site, compare median price to budget.
+            // TODO: If less than budget, create a result object and add it to the list.
+            System.out.println(url);
+        }
+        return resList;
     }
 
 }
