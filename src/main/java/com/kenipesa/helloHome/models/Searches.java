@@ -19,6 +19,7 @@ public class Searches {
         this.state = state;
         this.buyer = buyer;
     }
+    public Searches(){}
 
     public Long getId() {
         return id;
