@@ -7,7 +7,7 @@
 <body>
 <div th:replace="fragments/header :: loggedInHeader"></div>
 <h3>Search your new Home!</h3>
-<form action="post" method="/user/results">
+<form method="post" action="${'/user/results/'+ user.id}">
     <label for="city">City: </label><input name="city" id="city" /><br>
     <label for="state"> State: </label><input name="state" id="state" /><br>
     <input type="submit" />
