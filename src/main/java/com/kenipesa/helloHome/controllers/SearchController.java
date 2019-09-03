@@ -33,9 +33,6 @@ public class SearchController {
         searchesRepository.save(newSearch);
         model.addAttribute("buyer", p);
         return new RedirectView("/user/results");
-
     }
-
-
 
 }
