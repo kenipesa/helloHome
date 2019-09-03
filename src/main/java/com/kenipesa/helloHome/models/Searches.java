@@ -9,15 +9,14 @@ public class Searches {
     Long id;
 
     String city;
-    String State;
+    String state;
 
     @ManyToOne
     ApplicationUser buyer;
 
-    public Searches(Long id, String city, String state, ApplicationUser buyer) {
-        this.id = id;
+    public Searches(String city, String state, ApplicationUser buyer) {
         this.city = city;
-        State = state;
+        this.state = state;
         this.buyer = buyer;
     }
 
@@ -38,11 +37,11 @@ public class Searches {
     }
 
     public String getState() {
-        return State;
+        return state;
     }
 
     public void setState(String state) {
-        State = state;
+        this.state = state;
     }
 
     public ApplicationUser getBuyer() {

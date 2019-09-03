@@ -8,6 +8,7 @@ public class Expenses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    int annualIncome;
     int housePayment;
     int entertainment;
     int utilities;
@@ -18,9 +19,12 @@ public class Expenses {
     @OneToOne
     ApplicationUser buyer;
 
-    public Expenses(Long id, int housePayment, int entertainment, int utilities,
+
+    public Expenses() {}
+    
+    public Expenses(int annualIncome, int housePayment, int entertainment, int utilities,
                     int insurance, int vehicle, int misc, ApplicationUser buyer) {
-        this.id = id;
+        this.annualIncome = annualIncome;
         this.housePayment = housePayment;
         this.entertainment = entertainment;
         this.utilities = utilities;
@@ -33,11 +37,7 @@ public class Expenses {
     public Long getId() {
         return id;
     }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    
     public int getHousePayment() {
         return housePayment;
     }

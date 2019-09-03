@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8">
+		<title>HelloHome! - Expenses</title>
+		<link
+		 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		 rel="stylesheet"
+		 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 crossorigin="anonymous"
+		>
+		<link href="/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
+		
+		<main class="container">
+			<h1><span th:text="${currentUser.firstName}"></span> please enter your monthly expenses:</h1>
+			<form method="POST" action="/user/addExpenses">
+				<div class="form-group">
+					<label for="annualIncome">Annual Income</label>
+					<input type="number" name="annualIncome" class="form-control" id="annualIncome" placeholder="annual income">
+				</div>
+				<div class="form-group">
+					<label for="housePayment">House Payment</label>
+					<input type="number" name="housePayment" class="form-control" id="housePayment" placeholder="house payment">
+				</div>
+				<div class="form-group">
+					<label for="entertainment">Entertainment Payment</label>
+					<input type="number" name="entertainment" class="form-control" id="entertainment"
+					       placeholder="entertainment payment">
+				</div>
+				<div class="form-group">
+					<label for="utilities">Utilities Payment</label>
+					<input type="number" name="utilities" class="form-control" id="utilities" placeholder="utilities payment">
+				</div>
+				<div class="form-group">
+					<label for="insurance">Insurance Payment</label>
+					<input type="number" name="insurance" class="form-control" id="insurance" placeholder="insurance payment">
+				</div>
+				<div class="form-group">
+					<label for="vehicle">Vehicle Payment</label>
+					<input type="number" name="vehicle" class="form-control" id="vehicle" placeholder="vehicle payment">
+				</div>
+				<div class="form-group">
+					<label for="misc">Misc Payment</label>
+					<input type="number" name="misc" class="form-control" id="misc" placeholder="misc payment">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</main>
+	</body>
+</html>
