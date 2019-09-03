@@ -1,5 +1,6 @@
 package com.kenipesa.helloHome.models;
 
+import org.hibernate.engine.profile.Fetch;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -20,7 +21,7 @@ public class ApplicationUser implements UserDetails {
   @OneToOne
   Expenses expense;
 
-  @OneToMany
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "buyer")
   Set<Searches> searches;
   public ApplicationUser() {}
   
