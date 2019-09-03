@@ -19,6 +19,7 @@ public class Expenses {
     @OneToOne
     ApplicationUser buyer;
 
+
     public Expenses() {}
     
     public Expenses(int annualIncome, int housePayment, int entertainment, int utilities,
