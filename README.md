@@ -45,20 +45,21 @@
       * [styles](./src/main/resources/static/styles.css)
     * templates/
       * [aboutUs](./src/main/resources/templates/aboutUs.html)
+      * [addExpenses](./src/main/resources/templates/addExpenses.html)
       * [error](./src/main/resources/templates/error.html)
       * [index](./src/main/resources/templates/index.html)
-      * [myProfile](./src/main/resources/templates/index.html)
+      * [login](./src/main/resources/templates/login.html)
+      * [profile](./src/main/resources/templates/profile.html)
       * [register](./src/main/resources/templates/index.html)
     * templates/fragments/
       * [footer](./src/main/resources/templates/fragments/footer.html)
       * [header](./src/main/resources/templates/fragments/header.html)
-      * [navBar](./src/main/resources/templates/fragments/navBar.html)
       * [searchResults](./src/main/resources/templates/fragments/searchResults.html)
 * src/test/
   * java/
     * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
 
 ### Resources <a name="resources"></a>
-
+* [Thymeleaf Conditionals](https://www.baeldung.com/spring-thymeleaf-conditionals)
 
 **[Return to Top](#top)**
