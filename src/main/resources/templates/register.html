@@ -12,11 +12,11 @@
 		<link href="/styles.css" rel="stylesheet">
 	</head>
 	<body>
-		<div th:replace="fragments/header :: loggedInHeader"></div>
+		<div th:replace="fragments/header :: notLoggedInHeader"></div>
 		
 		<main class="container">
 			<h1>Sign up for a new HelloHome! account:</h1>
-			<form method="POST" action="/users">
+			<form method="POST" action="/register">
 				<div class="form-group">
 					<label for="username">Username</label>
 					<input type="text" name="username" class="form-control" id="username" placeholder="Username">
