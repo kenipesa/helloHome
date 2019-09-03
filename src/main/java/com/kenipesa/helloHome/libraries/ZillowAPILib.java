@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZillowAPILib {
-    String zws_id = "X1-ZWz1hbob58fl6z_aj9j5";
+    String zws_id = "";
 
     public static JSONObject getNeighborhood(String state, String city) {
         // Variables
