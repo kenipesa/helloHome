@@ -50,7 +50,7 @@
       * [index](./src/main/resources/templates/index.html)
       * [login](./src/main/resources/templates/login.html)
       * [profile](./src/main/resources/templates/profile.html)
-      * [register](./src/main/resources/templates/index.html)
+      * [register](./src/main/resources/templates/register.html)
     * templates/fragments/
       * [footer](./src/main/resources/templates/fragments/footer.html)
       * [header](./src/main/resources/templates/fragments/header.html)
