@@ -18,7 +18,7 @@ public class ApplicationUser implements UserDetails {
   String password;
 
   @OneToOne
-  Set<Expenses> expense;
+  Expenses expense;
 
   @OneToMany
   Set<Searches> searches;
