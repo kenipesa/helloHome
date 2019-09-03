@@ -16,7 +16,7 @@ public class Expenses {
     int misc;
 
     @OneToOne
-    ApplicationUser user;
+    ApplicationUser buyer;
 
     public Expenses(Long id, int housePayment, int entertainment, int utilities,
                     int insurance, int vehicle, int misc, ApplicationUser buyer) {
@@ -27,7 +27,7 @@ public class Expenses {
         this.insurance = insurance;
         this.vehicle = vehicle;
         this.misc = misc;
-        this.user = buyer;
+        this.buyer = buyer;
     }
 
     public Long getId() {
@@ -86,11 +86,11 @@ public class Expenses {
         this.misc = misc;
     }
 
-    public ApplicationUser getUser() {
-        return user;
+    public ApplicationUser getBuyer() {
+        return buyer;
     }
 
-    public void setUser(ApplicationUser user) {
-        this.user = user;
+    public void setBuyer(ApplicationUser buyer) {
+        this.buyer = buyer;
     }
 }

@@ -12,13 +12,13 @@ public class Searches {
     String State;
 
     @ManyToOne
-    ApplicationUser user;
+    ApplicationUser buyer;
 
-    public Searches(Long id, String city, String state, ApplicationUser user) {
+    public Searches(Long id, String city, String state, ApplicationUser buyer) {
         this.id = id;
         this.city = city;
         State = state;
-        this.user = user;
+        this.buyer = buyer;
     }
 
     public Long getId() {
@@ -45,11 +45,11 @@ public class Searches {
         State = state;
     }
 
-    public ApplicationUser getUser() {
-        return user;
+    public ApplicationUser getBuyer() {
+        return buyer;
     }
 
-    public void setUser(ApplicationUser user) {
-        this.user = user;
+    public void setBuyer(ApplicationUser buyer) {
+        this.buyer = buyer;
     }
 }
