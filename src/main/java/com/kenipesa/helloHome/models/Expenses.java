@@ -15,7 +15,7 @@ public class Expenses {
     int vehicle;
     int misc;
 
-    @ManyToOne
+    @OneToOne
     ApplicationUser user;
 
     public Expenses(Long id, int housePayment, int entertainment, int utilities,
