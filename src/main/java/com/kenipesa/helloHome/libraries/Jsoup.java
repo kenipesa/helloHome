@@ -22,7 +22,6 @@ public class Jsoup {
         String htmlString = elements.first().toString();
         medianPrice = htmlString.substring(5, htmlString.length() - 5).replace(",", "");
 
-
         return medianPrice;
     }
 }

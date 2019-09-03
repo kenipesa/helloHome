@@ -61,5 +61,6 @@
 
 ### Resources <a name="resources"></a>
 * [Thymeleaf Conditionals](https://www.baeldung.com/spring-thymeleaf-conditionals)
+* [Jsoup](https://jsoup.org/) & [Tutorial](https://www.tutorialspoint.com/jsoup/index.htm)
 
 **[Return to Top](#top)**
