@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All the Searches </title>
+    <title>Search</title>
 </head>
 <body>
+<div th:replace="fragments/header :: loggedInHeader"></div>
 <h3>Search your new Home!</h3>
-<form action="post" method="/user/searches">
+<form action="post" method="/user/results">
     <label for="city">City: </label><input name="city" id="city" /><br>
     <label for="state"> State: </label><input name="state" id="state" /><br>
     <input type="submit" />
