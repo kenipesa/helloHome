@@ -32,10 +32,14 @@
     * controllers/
       * [ApplicationUserController](./src/main/java/com/kenipesa/helloHome/controllers/ApplicationUserController.java)
       * [HomeController](./src/main/java/com/kenipesa/helloHome/controllers/HomeController.java)
+      * [SearchController](./src/main/java/com/kenipesa/helloHome/controllers/SearchController.java)
     * models/
       * [ApplicationUser](./src/main/java/com/kenipesa/helloHome/models/ApplicationUser.java)
       * [ApplicationUserRepository](./src/main/java/com/kenipesa/helloHome/models/ApplicationUserRepository.java)
-
+      * [Expenses](./src/main/java/com/kenipesa/helloHome/models/Expenses.java)
+      * [ExpensesRepository](./src/main/java/com/kenipesa/helloHome/models/ExpensesRepository.java)
+      * [Searches](./src/main/java/com/kenipesa/helloHome/models/Searches.java)
+      * [SearchesRepository](./src/main/java/com/kenipesa/helloHome/models/SearchesRepository.java)
 * src/main/resources/
     * static/
       * [styles](./src/main/resources/static/styles.css)

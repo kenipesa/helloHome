@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -15,7 +16,12 @@ public class ApplicationUser implements UserDetails {
   @Column(unique = true)
   String username;
   String password;
-  
+
+  @OneToOne
+  Expenses expense;
+
+  @OneToMany
+  Set<Searches> searches;
   public ApplicationUser() {}
   
   public ApplicationUser(String username, String password) {
