@@ -14,8 +14,7 @@ public class Searches {
     @ManyToOne
     ApplicationUser buyer;
 
-    public Searches(Long id, String city, String state, ApplicationUser buyer) {
-        this.id = id;
+    public Searches(String city, String state, ApplicationUser buyer) {
         this.city = city;
         this.state = state;
         this.buyer = buyer;
