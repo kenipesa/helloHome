@@ -22,16 +22,18 @@ public class SearchController {
     SearchesRepository searchesRepository;
 
     @GetMapping("/user/searches")
-    public String getAllSearches() {
+    public String getAllSearches(Principal p, Model m) {
+        ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
+        m.addAttribute("currentUser" , loggedBuyer);
+        m.addAttribute("user", p);
         return "searches";
     }
 
     @PostMapping("/user/results")
-    public RedirectView makeSearch(String city, String state, Principal p, Model model ) {
+    public RedirectView makeSearch(String city, String state, Principal p) {
         ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
         Searches newSearch = new Searches(city, state, loggedBuyer);
         searchesRepository.save(newSearch);
-        model.addAttribute("buyer", p);
         return new RedirectView("/user/results");
     }
 

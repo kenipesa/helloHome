@@ -4,6 +4,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+
 public class JsoupExample {
 
     public static void main( String[] args ) throws IOException {
