@@ -37,7 +37,7 @@
 ### Work Plan:
 * We will use a Trello Board to keep track of tasks and who is working on what at the beginning of each day
 * Code reviews will be done at the end of the day
-* Enforce a 15 minute rule - if a task is too difficult and the person is struggling for more than 15 minuntes, then they should pair up or ask for help.
+* Enforce a 15 minute rule - if a task is too difficult and the person is struggling for more than 15 minutes, then they should pair up or ask for help.
 
 ### Git Process:
 * The repo will be set to push to a “dev” branch as the standard push - “master” will only be used for deployable and tested features. This will ensure that only completed features will be added to the master and the application will not crash with “test” features.
