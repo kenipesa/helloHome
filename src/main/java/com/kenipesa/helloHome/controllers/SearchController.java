@@ -23,7 +23,10 @@ public class SearchController {
     SearchesRepository searchesRepository;
 
     @GetMapping("/user/searches")
-    public String makeSearches() {
+    public String makeSearches(Principal p, Model m) {
+        ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
+        m.addAttribute("currentUser" , loggedBuyer);
+        m.addAttribute("user", p);
         return "searches";
     }
 
