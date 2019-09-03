@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8">
+		<title>HelloHome! - Profile</title>
+		<link
+		 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		 rel="stylesheet"
+		 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 crossorigin="anonymous"
+		>
+		<link href="/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
+		<main class="container">
+			<h1>Profile</h1>
+			<ul>
+				<li class="list-group-item"><b>Username:</b> <span th:text="${currentUser.username}"></span></li>
+				<li class="list-group-item"><b>First Name:</b> <span th:text="${currentUser.firstName}"></span></li>
+				<li class="list-group-item"><b>Last Name:</b> <span th:text="${currentUser.lastName}"></span></li>
+				<li class="list-group-item"><b>Annual Income:</b> $<span th:text="${expenses.annualIncome}"></span></li>
+				<li class="list-group-item">
+					<b>Monthly Expenses:</b>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item"><b>House Payment:</b> $<span th:text="${expenses.housePayment}"></span></li>
+						<li class="list-group-item"><b>Entertainment Payment:</b> $
+							<span th:text="${expenses.entertainment}"></span></li>
+						<li class="list-group-item"><b>Utilities Payment:</b> $<span th:text="${expenses.utilities}"></span></li>
+						<li class="list-group-item"><b>Insurance Payment:</b> $<span th:text="${expenses.insurance}"></span></li>
+						<li class="list-group-item"><b>Vehicle Payment:</b> $<span th:text="${expenses.vehicle}"></span></li>
+						<li class="list-group-item"><b>Misc Payment:</b> $<span th:text="${expenses.misc}"></span></li>
+					</ul>
+				</li>
+			</ul>
+		</main>
+	</body>
+</html>

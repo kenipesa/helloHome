@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>HelloHome!</title>
+		<link
+		 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		 rel="stylesheet"
+		 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 crossorigin="anonymous"
+		>
+		<link href="/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div th:replace="fragments/header :: notLoggedInHeader"></div>
+		<main class="container">
+			<h1>Welcome to HelloHome!</h1>
+			<p>Please login to your account or register for a new one!</p>
+		</main>
+	</body>
 </html>
