@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div th:if="${user != null}">
-			<div th:replace="fragments/header :: loggedInHeader"></div>
+			<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
 		</div>
 		<div th:unless="${user != null}">
 			<div th:replace="fragments/header :: notLoggedInHeader"></div>
