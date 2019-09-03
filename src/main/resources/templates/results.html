@@ -16,9 +16,13 @@
     <div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
     <main class="container">
       <h3>Here is all the results of your Searches</h3>
-      <ul>
-        <li th:each="search : ${searchResults}" th:text="${search}"></li>
-      </ul>
+      <table>
+        <tr th:each="search : ${searchResults}">
+          <td>
+            <span th:text="${search.city}"></span>, <span th:text="${search.state}"></span>
+          </td>
+        </tr>
+      </table>
     </main>
   </body>
 </html>
