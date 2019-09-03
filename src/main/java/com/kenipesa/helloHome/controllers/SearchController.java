@@ -31,21 +31,21 @@ public class SearchController {
     }
 
     @PostMapping("/user/results/{id}")
-    public RedirectView addSearch(@PathVariable long id,  String city, String state, Principal p, Model model ) {
+    public RedirectView addSearch(@PathVariable long id,  String city, String state, Principal p, Model m ) {
         ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
         Searches newSearch = new Searches(city, state, loggedBuyer);
         searchesRepository.save(newSearch);
-        model.addAttribute("oneBuyer", applicationUserRepository.findById(id).get());
-        model.addAttribute("buyer", p);
+        m.addAttribute("oneBuyer", applicationUserRepository.findById(id).get());
+        m.addAttribute("buyer", p);
         return new RedirectView("/user/results");
     }
 
     @GetMapping("/user/results")
-    public String getSearchResult(Principal p, Model model) {
+    public String getSearchResult(Principal p, Model m) {
         ApplicationUser buyer = applicationUserRepository.findByUsername(p.getName());
-        model.addAttribute("searchResults", buyer.getSearches());
-        model.addAttribute("buyer", p);
+        m.addAttribute("currentUser", buyer);
+        m.addAttribute("searchResults", buyer.getSearches());
+        m.addAttribute("buyer", p);
         return "results";
     }
-
 }
