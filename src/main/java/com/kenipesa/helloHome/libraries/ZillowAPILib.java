@@ -72,7 +72,8 @@ public class ZillowAPILib {
                         marketType,
                         unFiltered.getJSONArray("region").getJSONObject(i).get("name").toString(),
                         unFiltered.getJSONArray("region").getJSONObject(i).get("latitude").toString(),
-                        unFiltered.getJSONArray("region").getJSONObject(i).get("longitude").toString()
+                        unFiltered.getJSONArray("region").getJSONObject(i).get("longitude").toString(),
+                        unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString()
                 );
                 resList.add(temp);
             }
