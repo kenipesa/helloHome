@@ -1,7 +1,10 @@
 package com.kenipesa.helloHome.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.security.Principal;
 
 @Controller
 public class HomeController {
@@ -18,5 +21,11 @@ public class HomeController {
   @GetMapping("/register")
   public String getRegistration() {
     return "register";
+  }
+  
+  @GetMapping("/aboutUs")
+  public String getAboutUs(Principal p, Model m) {
+    m.addAttribute("user", p);
+    return "aboutUs";
   }
 }
