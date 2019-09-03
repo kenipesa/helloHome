@@ -38,8 +38,12 @@ public class Expenses {
         return id;
     }
     
+    public int getAnnualIncome() {
+        return this.annualIncome;
+    }
+    
     public int getHousePayment() {
-        return housePayment;
+        return this.housePayment;
     }
 
     public void setHousePayment(int housePayment) {
@@ -47,7 +51,7 @@ public class Expenses {
     }
 
     public int getEntertainment() {
-        return entertainment;
+        return this.entertainment;
     }
 
     public void setEntertainment(int entertainment) {
@@ -55,7 +59,7 @@ public class Expenses {
     }
 
     public int getUtilities() {
-        return utilities;
+        return this.utilities;
     }
 
     public void setUtilities(int utilities) {
@@ -63,7 +67,7 @@ public class Expenses {
     }
 
     public int getInsurance() {
-        return insurance;
+        return this.insurance;
     }
 
     public void setInsurance(int insurance) {
@@ -71,7 +75,7 @@ public class Expenses {
     }
 
     public int getVehicle() {
-        return vehicle;
+        return this.vehicle;
     }
 
     public void setVehicle(int vehicle) {
@@ -79,7 +83,7 @@ public class Expenses {
     }
 
     public int getMisc() {
-        return misc;
+        return this.misc;
     }
 
     public void setMisc(int misc) {
@@ -87,7 +91,7 @@ public class Expenses {
     }
 
     public ApplicationUser getBuyer() {
-        return buyer;
+        return this.buyer;
     }
 
     public void setBuyer(ApplicationUser buyer) {

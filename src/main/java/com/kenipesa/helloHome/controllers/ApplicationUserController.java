@@ -58,7 +58,9 @@ public class ApplicationUserController {
   @GetMapping("/user/profile")
   public String getUserProfile(Principal p, Model m) {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
+    Expenses expenses = expensesRepository.findById(applicationUser.getId()).get();
     m.addAttribute("currentUser", applicationUser);
+    m.addAttribute("expenses", expenses);
     return "profile";
   }
 }
