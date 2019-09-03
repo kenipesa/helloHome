@@ -18,9 +18,8 @@ public class Expenses {
     @OneToOne
     ApplicationUser buyer;
 
-    public Expenses(Long id, int housePayment, int entertainment, int utilities,
+    public Expenses(int housePayment, int entertainment, int utilities,
                     int insurance, int vehicle, int misc, ApplicationUser buyer) {
-        this.id = id;
         this.housePayment = housePayment;
         this.entertainment = entertainment;
         this.utilities = utilities;
