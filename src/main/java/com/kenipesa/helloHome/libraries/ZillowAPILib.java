@@ -11,14 +11,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-/// TEMP ///
-class Result{
-
-}
-////////////
-
 public class ZillowAPILib {
-    String zws_id = "-----------";
+    String zws_id = "";
 
     public static JSONObject getNeighborhood(String state, String city) {
         // Variables
@@ -55,19 +49,34 @@ public class ZillowAPILib {
         return xmlJSONObj;
     }
 
-    public static List<Result> getFilteredResults(JSONObject webResponse) {
-        List<Result> resList = new ArrayList<>();
+    public static List<ResultObj> getFilteredResults(JSONObject webResponse) {
+        List<ResultObj> resList = new ArrayList<>();
         JSONObject unFiltered = webResponse.getJSONObject("RegionChildren:regionchildren")
                     .getJSONObject("response")
                     .getJSONObject("list");
         int neighborhoodCount = (int) unFiltered.get("count");
         //TODO: Calculate affordability
+        int ourBudget = -1;
+        int urlPrice = -1;
+        String marketType = "Cold";
         String url;
         for(int i = 0; i < neighborhoodCount; i++) {
             url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
             // TODO: Scrape site, compare median price to budget.
-            // TODO: If less than budget, create a result object and add it to the list.
-            System.out.println(url);
+            //urlPrice = scrapeURL(url);
+            if(urlPrice <= ourBudget) {
+                // TODO: Add result to the result list.
+//                System.out.println("In range.");
+                ResultObj temp = new ResultObj(
+                        urlPrice,
+                        marketType,
+                        unFiltered.getJSONArray("region").getJSONObject(i).get("name").toString(),
+                        unFiltered.getJSONArray("region").getJSONObject(i).get("latitude").toString(),
+                        unFiltered.getJSONArray("region").getJSONObject(i).get("longitude").toString()
+                );
+                resList.add(temp);
+            }
+//            System.out.println(url);
         }
         return resList;
     }

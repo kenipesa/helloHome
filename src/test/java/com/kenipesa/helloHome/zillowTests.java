@@ -1,9 +1,12 @@
 package com.kenipesa.helloHome;
 
+import com.kenipesa.helloHome.libraries.ResultObj;
 import com.kenipesa.helloHome.libraries.ZillowAPILib;
 import org.json.JSONObject;
 import org.junit.Test;
 import org.springframework.util.Assert;
+
+import java.util.List;
 
 public class zillowTests {
 
@@ -27,7 +30,8 @@ public class zillowTests {
 
     @Test public void zillowTestFilterList() {
         JSONObject test = ZillowAPILib.getNeighborhood("wa", "seattle");
-        ZillowAPILib.getFilteredResults(test);
+        List<ResultObj> testList = ZillowAPILib.getFilteredResults(test);
+        System.out.println(testList);
     }
 
 }
