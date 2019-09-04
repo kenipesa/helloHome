@@ -59,6 +59,7 @@ public class ApplicationUserController {
       expenses.setInsurance(insurance);
       expenses.setVehicle(vehicle);
       expenses.setMisc(misc);
+      
     }
     expensesRepository.save(expenses);
     return new RedirectView("/user/profile");

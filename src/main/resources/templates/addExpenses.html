@@ -12,7 +12,9 @@
 		<link href="/styles.css" rel="stylesheet">
 	</head>
 	<body>
-<!--		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>-->
+		<div th:if="${currentUser.expense != null}">
+			<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
+		</div>
 		
 		<main class="container">
 			<h1><span th:text="${currentUser.firstName}"></span> please enter your monthly expenses:</h1>
@@ -32,9 +34,9 @@
 					<input type="number" name="creditPayment" class="form-control" id="creditPayment" placeholder="credit card payment">
 				</div>
 				<div class="form-group" th:unless="${currentUser.expense == null}">
-					<label for="housePayment2">House Payment</label>
-					<input type="number" name="housePayment" class="form-control" id="housePayment2"
-					       th:value="${currentUser.expense.housePayment}">
+					<label for="creditPayment2">Credit Card Payment</label>
+					<input type="number" name="creditPayment" class="form-control" id="creditPayment2"
+					       th:value="${currentUser.expense.creditPayment}">
 				</div>
 				
 				<div class="form-group" th:if="${currentUser.expense == null}">
