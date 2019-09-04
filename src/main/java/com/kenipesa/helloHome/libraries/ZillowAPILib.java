@@ -15,6 +15,7 @@ import java.util.List;
 public class ZillowAPILib {
     String zws_id = "${API.KEY}";
 
+
     public static JSONObject getNeighborhood(String state, String city) {
         // Variables
         JSONObject xmlJSONObj = null;
@@ -40,7 +41,7 @@ public class ZillowAPILib {
 
         try{ // Convert XML Response to JSON
             xmlJSONObj = XML.toJSONObject(response.getBody().toString());
-            String jsonPrettyPrintString = xmlJSONObj.toString(4);
+//            String jsonPrettyPrintString = xmlJSONObj.toString(4);
 //            System.out.println(jsonPrettyPrintString);
         }
         catch(Exception e) {
