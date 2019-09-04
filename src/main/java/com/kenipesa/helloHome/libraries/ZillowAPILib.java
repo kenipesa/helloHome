@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZillowAPILib {
-    String zws_id = "";
+    String zws_id = "X1-ZWz1hbob58fl6z_aj9j5";
 
     public static JSONObject getNeighborhood(String state, String city) {
         // Variables
@@ -39,7 +39,7 @@ public class ZillowAPILib {
 
         try{ // Convert XML Response to JSON
             xmlJSONObj = XML.toJSONObject(response.getBody().toString());
-            String jsonPrettyPrintString = xmlJSONObj.toString(4);
+//            String jsonPrettyPrintString = xmlJSONObj.toString(4);
 //            System.out.println(jsonPrettyPrintString);
         }
         catch(Exception e) {
