@@ -32,8 +32,9 @@ public class FinanceCalculator {
         float rate = (float) (interestRate / 12);
         double roundedRate = Math.round(rate * scale) / scale;
         int months = yearsOfLoan * 12;
-        return (int)((float)( monthlyMortgageBudget * (Math.pow(1 + roundedRate, months) - 1) / ((float)(Math.pow((1 + roundedRate), months) * roundedRate))));
-
+        int value = (int)((float)( monthlyMortgageBudget * (Math.pow(1 + roundedRate, months) - 1) / ((float)(Math.pow((1 + roundedRate), months) * roundedRate))));
+        value = round(value);
+        return value;
 //        System.out.println("Rounded Rate = " + roundedRate);
 //        System.out.println(monthlyMortgageBudget);
 //        System.out.println("rate = " + rate);
@@ -44,5 +45,19 @@ public class FinanceCalculator {
 //        System.out.println(("rounded Bottom = " + roundedBottom));
 //        System.out.println("top = " + top);
 //        System.out.println("Rounded Top = " + roundedTop);
+    }
+
+//    Helper function to round a number to the nearest ten thousandth.
+//    Reference: https://www.geeksforgeeks.org/round-the-given-number-to-nearest-multiple-of-10/
+    private static int round(int n)
+    {
+        // Smaller multiple
+        int a = (n / 10000) * 10000;
+
+        // Larger multiple
+        int b = a + 10000;
+
+        // Return of closest of two
+        return (n - a > b - n)? b : a;
     }
 }
