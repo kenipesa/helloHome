@@ -2,6 +2,7 @@ package com.kenipesa.helloHome.libraries;
 
 import org.json.JSONObject;
 import org.json.XML;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -12,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZillowAPILib {
-    String zws_id = "X1-ZWz1hbob58fl6z_aj9j5";
+    String zws_id = "${API.KEY}";
+
 
     public static JSONObject getNeighborhood(String state, String city) {
         // Variables
