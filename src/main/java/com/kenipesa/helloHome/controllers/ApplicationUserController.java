@@ -1,9 +1,6 @@
 package com.kenipesa.helloHome.controllers;
 
-import com.kenipesa.helloHome.models.ApplicationUser;
-import com.kenipesa.helloHome.models.ApplicationUserRepository;
-import com.kenipesa.helloHome.models.Expenses;
-import com.kenipesa.helloHome.models.ExpensesRepository;
+import com.kenipesa.helloHome.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -70,9 +67,7 @@ public class ApplicationUserController {
   @GetMapping("/user/profile")
   public String getUserProfile(Principal p, Model m) {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
-    Expenses expenses = expensesRepository.findByBuyerId(applicationUser.getId());
     m.addAttribute("currentUser", applicationUser);
-    m.addAttribute("expenses", expenses);
     return "profile";
   }
 }

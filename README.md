@@ -66,5 +66,6 @@
 * [Jsoup](https://jsoup.org/)
 * [Jsoup Tutorial](https://www.tutorialspoint.com/jsoup/index.htm)
 * [One-to-one Mapping](https://hellokoding.com/jpa-one-to-one-foreignkey-relationship-example-with-spring-boot-maven-and-mysql/)
+* [Bootstrap Lux](https://bootswatch.com/lux/)
 
 **[Return to Top](#top)**

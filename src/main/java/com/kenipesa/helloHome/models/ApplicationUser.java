@@ -71,6 +71,10 @@ public class ApplicationUser implements UserDetails {
     return this.expense;
   }
   
+  public void addSearch(Searches search) {
+    this.searches.add(search);
+  }
+  
   public Set<Searches> getSearches() {
     return this.searches;
   }
