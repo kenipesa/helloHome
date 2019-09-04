@@ -1,8 +1,8 @@
 package com.kenipesa.helloHome.libraries;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -13,8 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ZillowAPILib {
-
-
     public static JSONObject getNeighborhood(String state, String city) {
         // Variables
         JSONObject xmlJSONObj = null;
@@ -55,31 +53,30 @@ public class ZillowAPILib {
         JSONObject unFiltered = webResponse.getJSONObject("RegionChildren:regionchildren")
                     .getJSONObject("response")
                     .getJSONObject("list");
-        int neighborhoodCount = (int) unFiltered.get("count");
         //TODO: Stretch: Calculate affordability
         int ourBudget = -1;
         int urlPrice = -1;
         String marketType = "Cold";
         String url;
+    
+        JSONArray tempApiArr = unFiltered.getJSONArray("region");
 
-        for(int i = 0; i < neighborhoodCount - 1; i++) {
+        for(int i = 0; i < tempApiArr.length(); i++) {
 
 //            url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
             // TODO: Stretch: Scrape site, compare median price to budget.
             //urlPrice = scrapeURL(url);
             if(urlPrice <= ourBudget) {
-//                System.out.println("In range.");
                 ResultObj temp = new ResultObj(
                         urlPrice,
                         marketType,
-                        unFiltered.getJSONArray("region").getJSONObject(i).get("name").toString(),
-                        unFiltered.getJSONArray("region").getJSONObject(i).get("latitude").toString(),
-                        unFiltered.getJSONArray("region").getJSONObject(i).get("longitude").toString(),
-                        unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString()
+                        tempApiArr.getJSONObject(i).get("name").toString(),
+                        tempApiArr.getJSONObject(i).get("latitude").toString(),
+                        tempApiArr.getJSONObject(i).get("longitude").toString(),
+                        tempApiArr.getJSONObject(i).get("url").toString()
                 );
                 resList.add(temp);
             }
-//            System.out.println(url);
         }
         return resList;
     }
