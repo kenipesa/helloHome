@@ -1,7 +1,31 @@
 body {
-  background: #224241!important;
+  background-color: #224241 !important;
 }
 
-#jumbotron {
-  background: #CCCC!important;
+.jumbotron {
+  background: #CCCC !important;
+}
+
+h1 {
+  color: #919A6D !important;
+}
+
+h3 {
+  color: #919A6D !important;
+}
+
+.btn-primary {
+  color: #919AA1 !important;
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+}
+
+.navbar-dark .navbar-brand {
+  color: #919A6D !important;
+}
+
+.link-like {
+  background-color: #224241;
+  border-color: #224241;
+  color: #1a1a1a;
 }

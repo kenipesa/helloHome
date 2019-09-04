@@ -29,16 +29,6 @@ public class HomeController {
     return "register";
   }
   
-  @GetMapping()
-  public String getError(Principal p, Model m) {
-    if (p != null) {
-      ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
-      m.addAttribute("currentUser", applicationUser);
-    }
-    m.addAttribute("user", p);
-    return "error";
-  }
-  
   @GetMapping("/aboutUs")
   public String getAboutUs(Principal p, Model m) {
     if (p != null) {

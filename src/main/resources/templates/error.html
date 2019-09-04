@@ -12,13 +12,6 @@
 	</head>
 	
 	<body>
-		<div th:if="${user != null}">
-			<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
-		</div>
-		<div th:unless="${user != null}">
-			<div th:replace="fragments/header :: notLoggedInHeader"></div>
-		</div>
-		
 		<main class="container">
 			<h3>Oh no, you seem to have run into an error...</h3>
 			<table class="table table-dark">
