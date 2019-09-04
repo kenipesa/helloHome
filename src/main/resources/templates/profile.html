@@ -15,32 +15,42 @@
 		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
 		<main class="container">
 			<h1>Profile</h1>
-			<p><a href="/user/addExpenses">Update Profile</a></p>
-			<ul>
-				<li><b>Username:</b> <span th:text="${currentUser.username}"></span></li>
-				<li><b>First Name:</b> <span th:text="${currentUser.firstName}"></span></li>
-				<li><b>Last Name:</b> <span th:text="${currentUser.lastName}"></span></li>
-				<li><b>Annual Income:</b> $
-					<span th:text="${currentUser.expense.annualIncome}"></span></li>
-				<li>
-					<b>Monthly Expenses:</b>
-					<ul>
-						<li><b>Credit Card Payment:</b> $
-							<span th:text="${currentUser.expense.creditPayment}"></span></li>
-						<li><b>Entertainment Payment:</b> $
-							<span th:text="${currentUser.expense.entertainment}"></span></li>
-						<li><b>Utilities Payment:</b> $
-							<span th:text="${currentUser.expense.utilities}"></span></li>
-						<li><b>Insurance Payment:</b> $
-							<span th:text="${currentUser.expense.insurance}"></span></li>
-						<li><b>Vehicle Payment:</b> $
-							<span th:text="${currentUser.expense.vehicle}"></span></li>
-						<li><b>Misc Payment:</b> $<span th:text="${currentUser.expense.misc}"></span></li>
-					</ul>
-				</li>
-				<li>
+
+			
+			<div th:if="${currentUser.expense == null}">
+				<p><a href="/user/addExpenses">Add expense information</a></p>
+			</div>
+			
+			<div th:unless="${currentUser.expense == null}">
+				<p><a href="/user/addExpenses">Update Profile</a></p>
+				
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><b>Username:</b> <span th:text="${currentUser.username}"></span></li>
+					<li class="list-group-item"><b>First Name:</b> <span th:text="${currentUser.firstName}"></span></li>
+					<li class="list-group-item"><b>Last Name:</b> <span th:text="${currentUser.lastName}"></span></li>
+					<li class="list-group-item"><b>Annual Income:</b> $
+						<span th:text="${currentUser.expense.annualIncome}"></span>
+					</li>
+					<li class="list-group-item">
+						<b>Monthly Expenses:</b>
+						<ul style="list-style-type: none">
+							<li><b>House Payment:</b> $
+								<span th:text="${currentUser.expense.housePayment}"></span></li>
+							<li><b>Entertainment Payment:</b> $
+								<span th:text="${currentUser.expense.entertainment}"></span></li>
+							<li><b>Utilities Payment:</b> $
+								<span th:text="${currentUser.expense.utilities}"></span></li>
+							<li><b>Insurance Payment:</b> $
+								<span th:text="${currentUser.expense.insurance}"></span></li>
+							<li><b>Vehicle Payment:</b> $
+								<span th:text="${currentUser.expense.vehicle}"></span></li>
+							<li><b>Misc Payment:</b> $<span th:text="${currentUser.expense.misc}"></span></li>
+						</ul>
+					</li>
+          <li class="list-group-item">
+
 					<b>Mortgage Buget</b>
-					<ul>
+					<ul style="list-style-type: none">
 						<li><b>Monthly Mortgage Budget</b> $
 							<span th:text="${currentUser.monthlyMortgageBudget}"></span></li>
 						<li><b>Total Mortgage Budget</b> $
@@ -48,21 +58,22 @@
 					</ul>
 
 				</li>
-				<li th:if="${currentUser.searches.size() != 0}">
-					<b>Past Searches:</b>
-					<ul th:each="search : ${currentUser.searches}">
-						<li>
-							<form method="POST" action="/user/results">
-								<input type="hidden" name="city" id="city" th:value="${search.city}" />
-								<input type="hidden" name="state" id="state" th:value="${search.state}" />
-								<button type="submit" class="link-like">
-									<span th:text="${search.city} + ', ' + ${search.state}"></span>
-								</button>
-							</form>
-						</li>
-					</ul>
-				</li>
-			</ul>
+					<li th:if="${currentUser.searches.size() != 0}" class="list-group-item">
+						<b>Past Searches:</b>
+						<ul th:each="search : ${currentUser.searches}" style="list-style-type: none">
+							<li>
+								<form method="POST" action="/user/results">
+									<input type="hidden" name="city" id="city" th:value="${search.city}" />
+									<input type="hidden" name="state" id="state" th:value="${search.state}" />
+									<button type="submit" class="link-like">
+										<span th:text="${search.city} + ', ' + ${search.state}"></span>
+									</button>
+								</form>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</main>
 	</body>
 </html>

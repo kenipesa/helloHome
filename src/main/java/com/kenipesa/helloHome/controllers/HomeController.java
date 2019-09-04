@@ -11,6 +11,13 @@ import java.security.Principal;
 
 @Controller
 public class HomeController {
+  private String [][] team = {
+   {"Kevin Couture", "kcouture939/", "kdcouture"},
+   {"Nicholas Paro", "nparo/", "paronicholas"},
+   {"Peter Lee", "leepj85/", "leepj85"},
+   {"Sapana Poudel", "sapana-poudel/", "sapanapoudel"}
+  };
+  
   @Autowired
   ApplicationUserRepository applicationUserRepository;
   
@@ -35,6 +42,7 @@ public class HomeController {
       ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
       m.addAttribute("currentUser", applicationUser);
     }
+    m.addAttribute("team", this.team);
     m.addAttribute("user", p);
     return "aboutUs";
   }
