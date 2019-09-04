@@ -49,8 +49,20 @@ public class ApplicationUserController {
   public RedirectView createAddExpenses(int annualIncome, int housePayment, int entertainment, int utilities,
                                         int insurance, int vehicle, int misc, Principal p) {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
-    Expenses expenses = new Expenses(annualIncome, housePayment, entertainment, utilities, insurance, vehicle, misc,
-     applicationUser);
+    Expenses expenses = expensesRepository.findByBuyerId(applicationUser.getId());
+    if (expenses == null) {
+      expenses = new Expenses(annualIncome, housePayment, entertainment, utilities, insurance, vehicle, misc,
+       applicationUser);
+      applicationUser.setExpense(expenses);
+    } else {
+      expenses.setAnnualIncome(annualIncome);
+      expenses.setHousePayment(housePayment);
+      expenses.setEntertainment(entertainment);
+      expenses.setUtilities(utilities);
+      expenses.setInsurance(insurance);
+      expenses.setVehicle(vehicle);
+      expenses.setMisc(misc);
+    }
     expensesRepository.save(expenses);
     return new RedirectView("/user/profile");
   }
@@ -58,7 +70,7 @@ public class ApplicationUserController {
   @GetMapping("/user/profile")
   public String getUserProfile(Principal p, Model m) {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
-    Expenses expenses = expensesRepository.findById(applicationUser.getId()).get();
+    Expenses expenses = expensesRepository.findByBuyerId(applicationUser.getId());
     m.addAttribute("currentUser", applicationUser);
     m.addAttribute("expenses", expenses);
     return "profile";

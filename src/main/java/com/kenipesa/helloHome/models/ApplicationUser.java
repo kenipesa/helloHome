@@ -20,7 +20,8 @@ public class ApplicationUser implements UserDetails {
   String firstName;
   String lastName;
 
-  @OneToOne
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(unique = true)
   Expenses expense;
 
   @OneToMany(fetch = FetchType.EAGER, mappedBy = "buyer")
@@ -60,6 +61,10 @@ public class ApplicationUser implements UserDetails {
   
   public String getLastName() {
     return this.lastName;
+  }
+  
+  public void setExpense(Expenses expense) {
+    this.expense = expense;
   }
   
   public Expenses getExpense() {
