@@ -8,7 +8,7 @@ public class FinanceCalculator {
 
 //  Using the 28% rule, calculate the monthly affordable budget of a gross annual income.
     public static int calcMonthlyMortgageBudget(int annualIncome) {
-        int monthlyIncome = FinanceCalculator.calcMonthlyGrossIncome(80000);
+        int monthlyIncome = FinanceCalculator.calcMonthlyGrossIncome(annualIncome);
         return (monthlyIncome * 28) / 100;
     }
 
