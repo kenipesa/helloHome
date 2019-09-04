@@ -2,49 +2,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-	<style>
-			table td{
-				vertical-align:top;
-				border:solid 1px #888;
-				padding:10px;
-			}
-	  </style>
-	<link href="/style.css" rel="stylesheet">
+<!--	<style>-->
+<!--			table td{-->
+<!--				vertical-align:top;-->
+<!--				border:solid 1px #888;-->
+<!--				padding:10px;-->
+<!--			}-->
+<!--	  </style>-->
+	<link
+	 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	 rel="stylesheet"
+	 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	 crossorigin="anonymous"
+	>
+	<link href="/styles.css" rel="stylesheet">
 </head>
 
 <body>
-<h1>Code Fellowship Error Page</h1>
-<table>
-	<tr>
-		<td>Date</td>
-		<td th:text="${timestamp}"/>
-	</tr>
-	<tr>
-		<td>Path</td>
-		<td th:text="${path}"/>
-	</tr>
-	<tr>
-		<td>Error</td>
-		<td th:text="${error}"/>
-	</tr>
-	<tr>
-		<td>Status</td>
-		<td th:text="${status}"/>
-	</tr>
-	<tr>
-		<td>Message</td>
-		<td th:text="${message}"/>
-	</tr>
-	<tr>
-		<td>Exception</td>
-		<td th:text="${exception}"/>
-	</tr>
-	<tr>
-		<td>Trace</td>
-		<td>
-			<pre th:text="${trace}"/>
-		</td>
-	</tr>
-</table>
+<div th:if="${user != null}">
+	<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
+</div>
+<div th:unless="${user != null}">
+	<div th:replace="fragments/header :: notLoggedInHeader"></div>
+</div>
+
+<main class="container">
+	<h3>Oh no, you seem to have run into an error...</h3>
+	<table class="table table-dark">
+		<tr>
+			<th scope="row">Date</th>
+			<td th:text="${timestamp}"/>
+		</tr>
+		<tr>
+			<th scope="row">Path</th>
+			<td th:text="${path}"/>
+		</tr>
+		<tr>
+			<th scope="row">Error</th>
+			<td th:text="${error}"/>
+		</tr>
+		<tr>
+			<th scope="row">Status</th>
+			<td th:text="${status}"/>
+		</tr>
+		<tr>
+			<th scope="row">Message</th>
+			<td th:text="${message}"/>
+		</tr>
+		<tr>
+			<th scope="row">Exception</th>
+			<td th:text="${exception}"/>
+		</tr>
+		<tr>
+			<th scope="row">Trace</th>
+			<td>
+				<pre th:text="${trace}"/>
+			</td>
+		</tr>
+	</table>
+</main>
 </body>
 </html>

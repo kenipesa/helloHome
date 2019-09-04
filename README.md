@@ -51,6 +51,8 @@
       * [login](./src/main/resources/templates/login.html)
       * [profile](./src/main/resources/templates/profile.html)
       * [register](./src/main/resources/templates/register.html)
+      * [results](./src/main/resources/templates/results.html)
+      * [searches](./src/main/resources/templates/searches.html)
     * templates/fragments/
       * [footer](./src/main/resources/templates/fragments/footer.html)
       * [header](./src/main/resources/templates/fragments/header.html)
@@ -61,6 +63,8 @@
 
 ### Resources <a name="resources"></a>
 * [Thymeleaf Conditionals](https://www.baeldung.com/spring-thymeleaf-conditionals)
-* [Jsoup](https://jsoup.org/) & [Tutorial](https://www.tutorialspoint.com/jsoup/index.htm)
+* [Jsoup](https://jsoup.org/)
+* [Jsoup Tutorial](https://www.tutorialspoint.com/jsoup/index.htm)
+* [One-to-one Mapping](https://hellokoding.com/jpa-one-to-one-foreignkey-relationship-example-with-spring-boot-maven-and-mysql/)
 
 **[Return to Top](#top)**
