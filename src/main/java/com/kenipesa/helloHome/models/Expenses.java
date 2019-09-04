@@ -16,7 +16,8 @@ public class Expenses {
     int vehicle;
     int misc;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(unique = true)
     ApplicationUser buyer;
     
     public Expenses() {}
@@ -35,6 +36,10 @@ public class Expenses {
 
     public Long getId() {
         return id;
+    }
+    
+    public void setAnnualIncome(int annualIncome) {
+        this.annualIncome = annualIncome;
     }
     
     public int getAnnualIncome() {

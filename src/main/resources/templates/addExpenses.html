@@ -17,35 +17,76 @@
 		<main class="container">
 			<h1><span th:text="${currentUser.firstName}"></span> please enter your monthly expenses:</h1>
 			<form method="POST" action="/user/addExpenses">
-				<div class="form-group">
+				<div class="form-group" th:if="${currentUser.expense == null}">
 					<label for="annualIncome">Annual Income</label>
 					<input type="number" name="annualIncome" class="form-control" id="annualIncome" placeholder="annual income">
 				</div>
-				<div class="form-group">
+				<div class="form-group" th:unless="${currentUser.expense == null}">
+					<label for="annualIncome2">Annual Income</label>
+					<input type="number" name="annualIncome" class="form-control" id="annualIncome2"
+					       th:value="${currentUser.expense.annualIncome}">
+				</div>
+				
+				<div class="form-group" th:if="${currentUser.expense == null}">
 					<label for="housePayment">House Payment</label>
 					<input type="number" name="housePayment" class="form-control" id="housePayment" placeholder="house payment">
 				</div>
-				<div class="form-group">
+				<div class="form-group" th:unless="${currentUser.expense == null}">
+					<label for="housePayment2">House Payment</label>
+					<input type="number" name="housePayment" class="form-control" id="housePayment2"
+					       th:value="${currentUser.expense.housePayment}">
+				</div>
+				
+				<div class="form-group" th:if="${currentUser.expense == null}">
 					<label for="entertainment">Entertainment Payment</label>
 					<input type="number" name="entertainment" class="form-control" id="entertainment"
 					       placeholder="entertainment payment">
 				</div>
-				<div class="form-group">
+				<div class="form-group" th:unless="${currentUser.expense == null}">
+					<label for="entertainment2">Entertainment Payment</label>
+					<input type="number" name="entertainment" class="form-control" id="entertainment2"
+					       th:value="${currentUser.expense.entertainment}">
+				</div>
+				
+				<div class="form-group" th:if="${currentUser.expense == null}">
 					<label for="utilities">Utilities Payment</label>
 					<input type="number" name="utilities" class="form-control" id="utilities" placeholder="utilities payment">
 				</div>
-				<div class="form-group">
+				<div class="form-group" th:unless="${currentUser.expense == null}">
+					<label for="utilities2">Utilities Payment</label>
+					<input type="number" name="utilities" class="form-control" id="utilities2"
+					       th:value="${currentUser.expense.utilities}">
+				</div>
+				
+				<div class="form-group" th:if="${currentUser.expense == null}">
 					<label for="insurance">Insurance Payment</label>
 					<input type="number" name="insurance" class="form-control" id="insurance" placeholder="insurance payment">
 				</div>
-				<div class="form-group">
+				<div class="form-group" th:unless="${currentUser.expense == null}">
+					<label for="insurance2">Insurance Payment</label>
+					<input type="number" name="insurance" class="form-control" id="insurance2"
+					       th:value="${currentUser.expense.insurance}">
+				</div>
+				
+				<div class="form-group"th:if="${currentUser.expense == null}">
 					<label for="vehicle">Vehicle Payment</label>
 					<input type="number" name="vehicle" class="form-control" id="vehicle" placeholder="vehicle payment">
 				</div>
-				<div class="form-group">
+				<div class="form-group" th:unless="${currentUser.expense == null}">
+					<label for="vehicle2">Vehicle Payment</label>
+					<input type="number" name="vehicle" class="form-control" id="vehicle2"
+					       th:value="${currentUser.expense.vehicle}">
+				</div>
+				
+				<div class="form-group" th:if="${currentUser.expense == null}">
 					<label for="misc">Misc Payment</label>
 					<input type="number" name="misc" class="form-control" id="misc" placeholder="misc payment">
 				</div>
+				<div class="form-group" th:unless="${currentUser.expense == null}">
+					<label for="misc2">Misc Payment</label>
+					<input type="number" name="misc" class="form-control" id="misc2" th:value="${currentUser.expense.misc}">
+				</div>
+				
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</main>
