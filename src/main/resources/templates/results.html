@@ -15,7 +15,7 @@
   <body>
     <div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
     <main class="container">
-      <h3>Here is all the results of your Searches</h3>
+      <h3>Here are all the results of your Searches</h3>
       <table>
         <tr th:each="search : ${searchResults}">
           <td>
