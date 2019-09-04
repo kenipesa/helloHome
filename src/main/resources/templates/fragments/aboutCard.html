@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:fragment="aboutCard(name, linkedIn, gitHub)">
+	<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+		<div class="card-header" th:text="${name}"></div>
+		<div class="card-body">
+			<p>
+				<a th:href="'https://www.linkedin.com/in/' + ${linkedIn}" target="_blank"><img
+				 src="/LI-In-Bug.png"
+				                                                                           alt="LinkedIn logo" width="48%"></a>
+				<a th:href="'https://github.com/' + ${gitHub}" target="_blank"><img src="/Octocat.png" alt="GitHub logo"
+				                                                                width="48%"></a>
+			</p>
+		</div>
+	</div>
+</div>
+</html>

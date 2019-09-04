@@ -29,3 +29,18 @@ h3 {
   border-color: #224241;
   color: #1a1a1a;
 }
+
+.bg-primary {
+  background-color: #193130 !important;
+}
+
+#team-pic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2%;
+}
+
+.list-group-item {
+  background-color: #224241 !important;
+}

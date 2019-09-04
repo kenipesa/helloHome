@@ -54,7 +54,7 @@
       * [results](./src/main/resources/templates/results.html)
       * [searches](./src/main/resources/templates/searches.html)
     * templates/fragments/
-      * [footer](./src/main/resources/templates/fragments/footer.html)
+      * [aboutCard](./src/main/resources/templates/fragments/aboutCard.html)
       * [header](./src/main/resources/templates/fragments/header.html)
       * [searchResults](./src/main/resources/templates/fragments/searchResults.html)
 * src/test/
@@ -67,5 +67,7 @@
 * [Jsoup Tutorial](https://www.tutorialspoint.com/jsoup/index.htm)
 * [One-to-one Mapping](https://hellokoding.com/jpa-one-to-one-foreignkey-relationship-example-with-spring-boot-maven-and-mysql/)
 * [Bootstrap Lux](https://bootswatch.com/lux/)
+* [Bootstrap Grid](https://getbootstrap.com/docs/4.3/layout/grid/#all-breakpoints)
+* [Bootstrap List](https://getbootstrap.com/docs/4.3/components/list-group/#flush)
 
 **[Return to Top](#top)**
