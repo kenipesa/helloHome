@@ -51,4 +51,5 @@ public class HelloHomeApplicationTests {
 		.andExpect(status().isOk())
 		.andExpect(content().string(containsString("Sign up for a new HelloHome! account:")));
 	}
+
 }

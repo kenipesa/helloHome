@@ -19,6 +19,9 @@ public class ApplicationUser implements UserDetails {
   String password;
   String firstName;
   String lastName;
+  int monthlyMortgageBudget;
+  int totalAffortableMortgage;
+
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(unique = true)
@@ -43,6 +46,22 @@ public class ApplicationUser implements UserDetails {
   
   public Long getId() {
     return this.id;
+  }
+
+  public int getMonthlyMortgageBudget() {
+    return monthlyMortgageBudget;
+  }
+
+  public void setMonthlyMortgageBudget(int monthlyMortgageBudget) {
+    this.monthlyMortgageBudget = monthlyMortgageBudget;
+  }
+
+  public int getTotalAffortableMortgage() {
+    return totalAffortableMortgage;
+  }
+
+  public void setTotalAffortableMortgage(int totalAffortableMortgage) {
+    this.totalAffortableMortgage = totalAffortableMortgage;
   }
   
   @Override
