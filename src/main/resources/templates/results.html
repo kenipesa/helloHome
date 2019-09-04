@@ -15,11 +15,11 @@
   <body>
     <div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
     <main class="container">
-      <h3>Here is all the results of your Searches</h3>
+      <h3>Here are all the results of your Searches</h3>
       <table>
         <tr th:each="search : ${searchResults}">
           <td>
-            <span th:text="${search.city}"></span>, <span th:text="${search.state}"></span>
+            <a th:text="${search.neighborhood}" th:href="${search.url}"></a><span th:text="${search.city}"></span>, <span th:text="${search.state}"></span>
           </td>
         </tr>
       </table>

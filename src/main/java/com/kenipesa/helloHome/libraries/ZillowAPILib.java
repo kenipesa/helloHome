@@ -55,17 +55,16 @@ public class ZillowAPILib {
                     .getJSONObject("response")
                     .getJSONObject("list");
         int neighborhoodCount = (int) unFiltered.get("count");
-        //TODO: Calculate affordability
+        //TODO: Stretch: Calculate affordability
         int ourBudget = -1;
         int urlPrice = -1;
         String marketType = "Cold";
         String url;
         for(int i = 0; i < neighborhoodCount; i++) {
-            url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
-            // TODO: Scrape site, compare median price to budget.
+//            url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
+            // TODO: Stretch: Scrape site, compare median price to budget.
             //urlPrice = scrapeURL(url);
             if(urlPrice <= ourBudget) {
-                // TODO: Add result to the result list.
 //                System.out.println("In range.");
                 ResultObj temp = new ResultObj(
                         urlPrice,

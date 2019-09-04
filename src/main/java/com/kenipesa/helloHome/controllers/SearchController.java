@@ -1,5 +1,7 @@
 package com.kenipesa.helloHome.controllers;
 
+import com.kenipesa.helloHome.libraries.ResultObj;
+import com.kenipesa.helloHome.libraries.ZillowAPILib;
 import com.kenipesa.helloHome.models.ApplicationUser;
 import com.kenipesa.helloHome.models.ApplicationUserRepository;
 import com.kenipesa.helloHome.models.Searches;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class SearchController {
@@ -46,13 +49,14 @@ public class SearchController {
                                   @ModelAttribute("state") String state) {
         ApplicationUser buyer = applicationUserRepository.findByUsername(p.getName());
         m.addAttribute("currentUser", buyer);
-        m.addAttribute("searchResults", buyer.getSearches());
+//        m.addAttribute("searchResults", buyer.getSearches());
         m.addAttribute("buyer", p);
         System.out.println(city);
         System.out.println(state);
-        //TODO: place Zilllow API call later
-        //ZillowAPILib.getNeighborhood(state, city);
-        //TODO: add zillow API result to the model
+        // Zillow API Call
+        List<ResultObj> results = ZillowAPILib.getFilteredResults(ZillowAPILib.getNeighborhood(state, city));
+        // Add Model
+        m.addAttribute("results", results);
         return "results";
     }
 }
