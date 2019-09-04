@@ -17,7 +17,7 @@ public class FinanceCalculator {
                                                          int insurance, int vehicle, int misc) {
         int totalDebt = creditPayment + entertainment + utilities + insurance + vehicle + misc;
 
-        int value = (int) totalDebt / monthlyIncome * 100;
+        int value = totalDebt / monthlyIncome * 100;
         if(value == 36 || value < 36) {
             return true;
         } else {
@@ -35,16 +35,6 @@ public class FinanceCalculator {
         int value = (int)((float)( monthlyMortgageBudget * (Math.pow(1 + roundedRate, months) - 1) / ((float)(Math.pow((1 + roundedRate), months) * roundedRate))));
         value = round(value);
         return value;
-//        System.out.println("Rounded Rate = " + roundedRate);
-//        System.out.println(monthlyMortgageBudget);
-//        System.out.println("rate = " + rate);
-//        System.out.println("months = " + months);
-//        float top = (float) (Math.pow(1 + rate, months) - 1);
-//        float roundedTop = (float) (Math.pow(1 + roundedRate, months) - 1);
-//        float roundedBottom = (float)(Math.pow((1 + roundedRate), months) * roundedRate);
-//        System.out.println(("rounded Bottom = " + roundedBottom));
-//        System.out.println("top = " + top);
-//        System.out.println("Rounded Top = " + roundedTop);
     }
 
 //    Helper function to round a number to the nearest ten thousandth.
