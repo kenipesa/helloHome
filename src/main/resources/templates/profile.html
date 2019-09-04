@@ -15,6 +15,7 @@
 		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
 		<main class="container">
 			<h1>Profile</h1>
+
 			
 			<div th:if="${currentUser.expense == null}">
 				<p><a href="/user/addExpenses">Add expense information</a></p>
@@ -47,6 +48,7 @@
 						</ul>
 					</li>
           <li class="list-group-item">
+
 					<b>Mortgage Buget</b>
 					<ul style="list-style-type: none">
 						<li><b>Monthly Mortgage Budget</b> $

@@ -43,17 +43,17 @@ public class ApplicationUserController {
   }
   
   @PostMapping("/user/addExpenses")
-  public RedirectView createAddExpenses(int annualIncome, int housePayment, int entertainment, int utilities,
+  public RedirectView createAddExpenses(int annualIncome, int creditPayment, int entertainment, int utilities,
                                         int insurance, int vehicle, int misc, Principal p) {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
     Expenses expenses = expensesRepository.findByBuyerId(applicationUser.getId());
     if (expenses == null) {
-      expenses = new Expenses(annualIncome, housePayment, entertainment, utilities, insurance, vehicle, misc,
+      expenses = new Expenses(annualIncome, creditPayment, entertainment, utilities, insurance, vehicle, misc,
        applicationUser);
       applicationUser.setExpense(expenses);
     } else {
       expenses.setAnnualIncome(annualIncome);
-      expenses.setHousePayment(housePayment);
+      expenses.setCreditPayment(creditPayment);
       expenses.setEntertainment(entertainment);
       expenses.setUtilities(utilities);
       expenses.setInsurance(insurance);
