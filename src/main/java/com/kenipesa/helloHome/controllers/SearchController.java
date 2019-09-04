@@ -44,24 +44,24 @@ public class SearchController {
         m.addAttribute("city", city);
         m.addAttribute("state", state);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:resultsNeigh");
+        modelAndView.setViewName("redirect:resultsNeig");
         redir.addFlashAttribute("city", city);
         redir.addFlashAttribute("state", state);
         return modelAndView;
     }
 
-    @GetMapping("/user/results")
+    @GetMapping("/user/resultsNeig")
     public String getSearchResult(Principal p, ModelMap m) {
         ApplicationUser buyer = applicationUserRepository.findByUsername(p.getName());
         m.addAttribute("currentUser", buyer);
 //        m.addAttribute("searchResults", buyer.getSearches());
         m.addAttribute("buyer", p);
         // Zillow API Call
-        JSONObject test = ZillowAPILib.getNeighborhood("wa", "seattle");
-        List<ResultObj> testList = ZillowAPILib.getFilteredResults(test);
-//        List<ResultObj> results = ZillowAPILib.getFilteredResults(ZillowAPILib.getNeighborhood(state, city));
+//        JSONObject test = ZillowAPILib.getNeighborhood("wa", "seattle");
+//        List<ResultObj> results = ZillowAPILib.getFilteredResults(test);
+        List<ResultObj> results = ZillowAPILib.getFilteredResults(ZillowAPILib.getNeighborhood(m.get("state").toString(), m.get("city").toString()));
         // Add to Model
-        m.addAttribute("searchResults", testList);
-        return "results";
+        m.addAttribute("searchResults", results);
+        return "resultsNeig";
     }
 }
