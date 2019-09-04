@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>HelloHome! - Results</title>
     <link
-     href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css"
-     rel="stylesheet"
-     integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt"
-     crossorigin="anonymous"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
     >
-    <link href="/styles.css" rel="stylesheet" type="text/css">
+    <link href="/styles.css" rel="stylesheet">
   </head>
   
   <body>
@@ -19,7 +19,7 @@
       <table>
         <tr th:each="search : ${searchResults}">
           <td>
-            <a th:text="${search.neighborhood}" th:href="${search.url}"></a><span th:text="${search.city}"></span>, <span th:text="${search.state}"></span>
+            <span><a th:text="${search.neighborhood}" th:href="${search.url}"></a>, </span><span th:text="${city}"></span>, <span th:text="${state}"></span>
           </td>
         </tr>
       </table>
