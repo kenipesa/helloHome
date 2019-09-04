@@ -38,34 +38,32 @@ public class SearchController {
     @PostMapping("/user/results")
     public ModelAndView addSearch(String city, String state, Principal p, ModelMap m, RedirectAttributes redir) {
         ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
-        Searches newSearch = searchesRepository.findByBuyerId(loggedBuyer.getId());
-        if (newSearch == null) {
-            newSearch = new Searches(city, state, loggedBuyer);
+        Searches newSearch = new Searches(city, state, loggedBuyer);
+        
+        if (searchesRepository.findByCityAndState(newSearch.getCity(),
+         newSearch.getState()) == null) {
+            System.out.println("Not already in DB");
             loggedBuyer.addSearch(newSearch);
+            searchesRepository.save(newSearch);
         }
-        searchesRepository.save(newSearch);
+    
         m.addAttribute("buyer", p);
         m.addAttribute("city", city);
         m.addAttribute("state", state);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:resultsNeig");
+        modelAndView.setViewName("redirect:results");
         redir.addFlashAttribute("city", city);
         redir.addFlashAttribute("state", state);
         return modelAndView;
     }
 
-    @GetMapping("/user/resultsNeig")
+    @GetMapping("/user/results")
     public String getSearchResult(Principal p, ModelMap m) {
         ApplicationUser buyer = applicationUserRepository.findByUsername(p.getName());
         m.addAttribute("currentUser", buyer);
-//        m.addAttribute("searchResults", buyer.getSearches());
         m.addAttribute("buyer", p);
-        // Zillow API Call
-//        JSONObject test = ZillowAPILib.getNeighborhood("wa", "seattle");
-//        List<ResultObj> results = ZillowAPILib.getFilteredResults(test);
         List<ResultObj> results = ZillowAPILib.getFilteredResults(ZillowAPILib.getNeighborhood(m.get("state").toString(), m.get("city").toString()));
-        // Add to Model
         m.addAttribute("searchResults", results);
-        return "resultsNeig";
+        return "results";
     }
 }

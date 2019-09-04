@@ -23,13 +23,12 @@ public class ZillowAPILib {
         // Set up for api request
         RestTemplate restTemplate = new RestTemplate();
         String zillowURL = "http://www.zillow.com/webservice/GetRegionChildren.htm";
-        System.out.println(System.getenv("api.key"));
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         // Build URi and add query parameters
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(zillowURL)
 //                .queryParam("zws-id", System.getenv("api.key"))
-                .queryParam("zws-id", "X1-ZWz1hbob58fl6z_aj9j5")
+                .queryParam("zws-id", System.getenv("API_KEY"))
                 .queryParam("state", state)
                 .queryParam("city", city)
                 .queryParam("childtype", "neighborhood");
@@ -62,7 +61,9 @@ public class ZillowAPILib {
         int urlPrice = -1;
         String marketType = "Cold";
         String url;
-        for(int i = 0; i < neighborhoodCount-1; i++) {
+
+        for(int i = 0; i < neighborhoodCount - 1; i++) {
+
 //            url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
             // TODO: Stretch: Scrape site, compare median price to budget.
             //urlPrice = scrapeURL(url);

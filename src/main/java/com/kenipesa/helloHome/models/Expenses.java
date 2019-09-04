@@ -1,5 +1,7 @@
 package com.kenipesa.helloHome.models;
 
+import com.kenipesa.helloHome.libraries.FinanceCalculator;
+
 import javax.persistence.*;
 
 @Entity
@@ -32,6 +34,10 @@ public class Expenses {
         this.vehicle = vehicle;
         this.misc = misc;
         this.buyer = buyer;
+
+        this.buyer.setMonthlyMortgageBudget(FinanceCalculator.calcMonthlyMortgageBudget(this.annualIncome));
+        this.buyer.setTotalAffortableMortgage(FinanceCalculator.calcAffordableMortgage(this.buyer.getMonthlyMortgageBudget(),
+                .04, 30));
     }
 
     public Long getId() {
