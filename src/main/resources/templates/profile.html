@@ -38,6 +38,16 @@
 						<li><b>Misc Payment:</b> $<span th:text="${currentUser.expense.misc}"></span></li>
 					</ul>
 				</li>
+				<li>
+					<b>Mortgage Buget</b>
+					<ul>
+						<li><b>Monthly Mortgage Budget</b> $
+							<span th:text="${currentUser.monthlyMortgageBudget}"></span></li>
+						<li><b>Total Mortgage Budget</b> $
+							<span th:text="${currentUser.totalAffortableMortgage}"></span></li>
+					</ul>
+
+				</li>
 				<li th:if="${currentUser.searches.size() != 0}">
 					<b>Past Searches:</b>
 					<ul th:each="search : ${currentUser.searches}">
