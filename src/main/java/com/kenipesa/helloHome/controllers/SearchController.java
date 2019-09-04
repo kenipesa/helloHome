@@ -36,7 +36,7 @@ public class SearchController {
     }
 
     @PostMapping("/user/results")
-    public ModelAndView addSearch(String city, String state, Principal p, ModelMap m, RedirectAttributes redir ) {
+    public ModelAndView addSearch(String city, String state, Principal p, ModelMap m, RedirectAttributes redir) {
         ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
         Searches newSearch = new Searches(city, state, loggedBuyer);
         searchesRepository.save(newSearch);
@@ -44,7 +44,7 @@ public class SearchController {
         m.addAttribute("city", city);
         m.addAttribute("state", state);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:results");
+        modelAndView.setViewName("redirect:resultsNeigh");
         redir.addFlashAttribute("city", city);
         redir.addFlashAttribute("state", state);
         return modelAndView;
