@@ -28,9 +28,8 @@ public class ZillowAPILib {
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         // Build URi and add query parameters
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(zillowURL)
-       // api.key=${API_KEY:123abc}
-                .queryParam("zws-id", System.getenv("api.key"))
-
+//                .queryParam("zws-id", System.getenv("api.key"))
+                .queryParam("zws-id", "X1-ZWz1hbob58fl6z_aj9j5")
                 .queryParam("state", state)
                 .queryParam("city", city)
                 .queryParam("childtype", "neighborhood");
