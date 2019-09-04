@@ -3,9 +3,9 @@
       xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<link
-		 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		 href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css"
 		 rel="stylesheet"
-		 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt"
 		 crossorigin="anonymous"
 		>
 		<link href="/styles.css" rel="stylesheet">
@@ -24,34 +24,34 @@
 			<table class="table table-dark">
 				<tr>
 					<th scope="row">Date</th>
-					<td th:text="${timestamp}"/>
+					<td th:text="${timestamp}"></td>
 				</tr>
-				<tr>
-					<th scope="row">Path</th>
-					<td th:text="${path}"/>
-				</tr>
+<!--				<tr>-->
+<!--					<th scope="row">Path</th>-->
+<!--					<td th:text="${path}"></td>-->
+<!--				</tr>-->
 				<tr>
 					<th scope="row">Error</th>
-					<td th:text="${error}"/>
+					<td th:text="${error}"></td>
 				</tr>
 				<tr>
 					<th scope="row">Status</th>
-					<td th:text="${status}"/>
+					<td th:text="${status}"></td>
 				</tr>
 				<tr>
 					<th scope="row">Message</th>
-					<td th:text="${message}"/>
+					<td th:text="${message}"></td>
 				</tr>
-				<tr>
-					<th scope="row">Exception</th>
-					<td th:text="${exception}"/>
-				</tr>
-				<tr>
-					<th scope="row">Trace</th>
-					<td>
-						<pre th:text="${trace}"/>
-					</td>
-				</tr>
+<!--				<tr>-->
+<!--					<th scope="row">Exception</th>-->
+<!--					<td th:text="${exception}"></td>-->
+<!--				</tr>-->
+<!--				<tr>-->
+<!--					<th scope="row">Trace</th>-->
+<!--					<td>-->
+<!--						<pre th:text="${trace}"></pre>-->
+<!--					</td>-->
+<!--				</tr>-->
 			</table>
 		</main>
 	</body>

@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <title>HelloHome! - Results</title>
     <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
+     href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css"
+     rel="stylesheet"
+     integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt"
+     crossorigin="anonymous"
     >
-    <link href="/styles.css" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet" type="text/css">
   </head>
   
   <body>
     <div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
     <main class="container">
       <h3>Here is all the results of your Searches</h3>
-      <table>
+      <table class="table">
         <tr th:each="search : ${searchResults}">
           <td>
             <span th:text="${search.city}"></span>, <span th:text="${search.state}"></span>

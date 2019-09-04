@@ -4,9 +4,9 @@
 		<meta charset="UTF-8">
 		<title>HelloHome! - About Us</title>
 		<link
-		 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		 href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css"
 		 rel="stylesheet"
-		 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt"
 		 crossorigin="anonymous"
 		>
 		<link href="/styles.css" rel="stylesheet">
@@ -18,5 +18,9 @@
 		<div th:unless="${user != null}">
 			<div th:replace="fragments/header :: notLoggedInHeader"></div>
 		</div>
+		
+		<main class="container">
+		
+		</main>
 	</body>
 </html>

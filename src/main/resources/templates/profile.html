@@ -4,9 +4,9 @@
 		<meta charset="UTF-8">
 		<title>HelloHome! - Profile</title>
 		<link
-		 href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		 href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css"
 		 rel="stylesheet"
-		 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt"
 		 crossorigin="anonymous"
 		>
 		<link href="/styles.css" rel="stylesheet">
@@ -36,6 +36,21 @@
 						<li class="list-group-item"><b>Vehicle Payment:</b> $
 							<span th:text="${currentUser.expense.vehicle}"></span></li>
 						<li class="list-group-item"><b>Misc Payment:</b> $<span th:text="${currentUser.expense.misc}"></span></li>
+					</ul>
+				</li>
+				<li class="list-group-item" th:if="${currentUser.searches.size() != 0}">
+					<b>Past Searches:</b>
+					<ul class="list-group list-group-flush"
+					    th:each="search : ${currentUser.searches}">
+						<li class="list-group-item">
+							<form method="POST" action="/user/results">
+								<input type="hidden" name="city" id="city" th:value="${search.city}" />
+								<input type="hidden" name="state" id="state" th:value="${search.state}" />
+								<button type="submit">
+									<span th:text="${search.city} + ', ' + ${search.state}"></span>
+								</button>
+							</form>
+						</li>
 					</ul>
 				</li>
 			</ul>
