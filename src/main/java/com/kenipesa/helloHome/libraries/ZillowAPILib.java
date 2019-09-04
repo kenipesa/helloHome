@@ -62,7 +62,7 @@ public class ZillowAPILib {
         int urlPrice = -1;
         String marketType = "Cold";
         String url;
-        for(int i = 0; i < neighborhoodCount; i++) {
+        for(int i = 0; i < neighborhoodCount-1; i++) {
 //            url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
             // TODO: Stretch: Scrape site, compare median price to budget.
             //urlPrice = scrapeURL(url);
