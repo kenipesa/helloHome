@@ -25,7 +25,7 @@ public class FinanceCalculator {
         }
     }
 
-//  Calculate total affortable mortgage, using algorithm found online.
+//  Calculate total affordable mortgage, using algorithm found online.
 //  Reference: http://www.moneychimp.com/articles/finworks/fmmortgage.htm
     public static int calcAffordableMortgage(int monthlyMortgageBudget, double interestRate, int yearsOfLoan) {
         double scale = Math.pow(10, 5);
@@ -49,8 +49,7 @@ public class FinanceCalculator {
 
 //    Helper function to round a number to the nearest ten thousandth.
 //    Reference: https://www.geeksforgeeks.org/round-the-given-number-to-nearest-multiple-of-10/
-    private static int round(int n)
-    {
+    private static int round(int n) {
         // Smaller multiple
         int a = (n / 10000) * 10000;
 
