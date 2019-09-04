@@ -28,8 +28,8 @@
 				</div>
 				
 				<div class="form-group" th:if="${currentUser.expense == null}">
-					<label for="housePayment">House Payment</label>
-					<input type="number" name="housePayment" class="form-control" id="housePayment" placeholder="house payment">
+					<label for="creditPayment">Credit Card Payment</label>
+					<input type="number" name="creditPayment" class="form-control" id="creditPayment" placeholder="credit card payment">
 				</div>
 				<div class="form-group" th:unless="${currentUser.expense == null}">
 					<label for="housePayment2">House Payment</label>

@@ -15,6 +15,7 @@
 		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
 		<main class="container">
 			<h1>Profile</h1>
+
 			
 			<div th:if="${currentUser.expense == null}">
 				<p><a href="/user/addExpenses">Add expense information</a></p>
@@ -33,8 +34,8 @@
 					<li class="list-group-item">
 						<b>Monthly Expenses:</b>
 						<ul style="list-style-type: none">
-							<li><b>House Payment:</b> $
-								<span th:text="${currentUser.expense.housePayment}"></span></li>
+							<li><b>Credit Card Payment:</b> $
+								<span th:text="${currentUser.expense.creditPayment}"></span></li>
 							<li><b>Entertainment Payment:</b> $
 								<span th:text="${currentUser.expense.entertainment}"></span></li>
 							<li><b>Utilities Payment:</b> $

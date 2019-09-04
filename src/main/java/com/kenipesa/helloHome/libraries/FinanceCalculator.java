@@ -13,9 +13,9 @@ public class FinanceCalculator {
     }
 
 //  Using the 36% rule, check if total debt is no more than 36% of monthly income.
-    public static boolean isMonthlyDebtLessThan36Percent(int monthlyIncome, int housePayment, int entertainment, int utilities,
+    public static boolean isMonthlyDebtLessThan36Percent(int monthlyIncome, int creditPayment, int entertainment, int utilities,
                                                          int insurance, int vehicle, int misc) {
-        int totalDebt = housePayment + entertainment + utilities + insurance + vehicle + misc;
+        int totalDebt = creditPayment + entertainment + utilities + insurance + vehicle + misc;
 
         int value = (int) totalDebt / monthlyIncome * 100;
         if(value == 36 || value < 36) {

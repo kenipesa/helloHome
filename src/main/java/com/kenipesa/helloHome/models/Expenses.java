@@ -11,7 +11,7 @@ public class Expenses {
     Long id;
 
     int annualIncome;
-    int housePayment;
+    int creditPayment;
     int entertainment;
     int utilities;
     int insurance;
@@ -24,10 +24,10 @@ public class Expenses {
     
     public Expenses() {}
     
-    public Expenses(int annualIncome, int housePayment, int entertainment, int utilities,
+    public Expenses(int annualIncome, int creditPayment, int entertainment, int utilities,
                     int insurance, int vehicle, int misc, ApplicationUser buyer) {
         this.annualIncome = annualIncome;
-        this.housePayment = housePayment;
+        this.creditPayment = creditPayment;
         this.entertainment = entertainment;
         this.utilities = utilities;
         this.insurance = insurance;
@@ -52,12 +52,12 @@ public class Expenses {
         return this.annualIncome;
     }
     
-    public int getHousePayment() {
-        return this.housePayment;
+    public int getCreditPayment() {
+        return this.creditPayment;
     }
 
-    public void setHousePayment(int housePayment) {
-        this.housePayment = housePayment;
+    public void setCreditPayment(int creditPayment) {
+        this.creditPayment = creditPayment;
     }
 
     public int getEntertainment() {
