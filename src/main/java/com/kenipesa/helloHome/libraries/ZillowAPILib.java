@@ -25,7 +25,6 @@ public class ZillowAPILib {
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         // Build URi and add query parameters
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(zillowURL)
-//                .queryParam("zws-id", System.getenv("api.key"))
                 .queryParam("zws-id", System.getenv("API_KEY"))
                 .queryParam("state", state)
                 .queryParam("city", city)
@@ -63,9 +62,10 @@ public class ZillowAPILib {
 
         for(int i = 0; i < tempApiArr.length(); i++) {
 
-//            url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
+            //url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
             // TODO: Stretch: Scrape site, compare median price to budget.
             //urlPrice = scrapeURL(url);
+            String gMap = ZillowAPILib.getGMap(tempApiArr.getJSONObject(i).get("latitude").toString(), tempApiArr.getJSONObject(i).get("longitude").toString());
             if(urlPrice <= ourBudget) {
                 ResultObj temp = new ResultObj(
                         urlPrice,
@@ -73,12 +73,23 @@ public class ZillowAPILib {
                         tempApiArr.getJSONObject(i).get("name").toString(),
                         tempApiArr.getJSONObject(i).get("latitude").toString(),
                         tempApiArr.getJSONObject(i).get("longitude").toString(),
-                        tempApiArr.getJSONObject(i).get("url").toString()
+                        tempApiArr.getJSONObject(i).get("url").toString(),
+                        gMap
                 );
                 resList.add(temp);
             }
         }
         return resList;
+    }
+
+    public static String getGMap(String lat, String lng) {
+        StringBuilder URL = new StringBuilder();
+        String latLng = lat + "," + lng;
+        URL.append("https://maps.googleapis.com/maps/api/staticmap?key=" + System.getenv("GMAP_KEY"));
+        URL.append("&center=" + latLng);
+        URL.append("&zoom=12");
+        URL.append("&size=250x250");
+        return URL.toString();
     }
 
 }
