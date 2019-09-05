@@ -42,7 +42,6 @@ public class SearchController {
         
         if (searchesRepository.findByCityAndState(newSearch.getCity(),
          newSearch.getState()) == null) {
-            System.out.println("Not already in DB");
             loggedBuyer.addSearch(newSearch);
             searchesRepository.save(newSearch);
         }
