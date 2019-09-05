@@ -19,7 +19,7 @@
 ### Project Links <a name="pLinks"></a>
 * [Trello Board](https://trello.com/b/FJsnmXIV/kenipesa)
 * [Wireframe](https://app.moqups.com/RQTQyO8RUn/view/page/ad64222d5)
-* [Database Schema](./project-link-files/HelloHome.pdf)
+* [Database Schema](./project-link-files/Database_Schema.png)
 * [Team Agreement](./project-link-files/team-agreement.md)
 * [User Stories](./project-link-files/user-stories.md)
 
@@ -33,6 +33,11 @@
       * [ApplicationUserController](./src/main/java/com/kenipesa/helloHome/controllers/ApplicationUserController.java)
       * [HomeController](./src/main/java/com/kenipesa/helloHome/controllers/HomeController.java)
       * [SearchController](./src/main/java/com/kenipesa/helloHome/controllers/SearchController.java)
+    * libraries/
+      * [FinanceCalculator](./src/main/java/com/kenipesa/helloHome/libraries/FinanceCalculator.java)
+      * [Jsoup](./src/main/java/com/kenipesa/helloHome/libraries/Jsoup.java)
+      * [ResultObj](./src/main/java/com/kenipesa/helloHome/libraries/ResultObj.java)
+      * [ZillowAPILib](./src/main/java/com/kenipesa/helloHome/libraries/ZillowAPILib.java)
     * models/
       * [ApplicationUser](./src/main/java/com/kenipesa/helloHome/models/ApplicationUser.java)
       * [ApplicationUserRepository](./src/main/java/com/kenipesa/helloHome/models/ApplicationUserRepository.java)
