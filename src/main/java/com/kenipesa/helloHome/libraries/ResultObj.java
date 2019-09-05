@@ -7,6 +7,11 @@ public class ResultObj {
     String lat;
     String lng;
     String url;
+    String gMap;
+
+    public String getgMap() {
+        return gMap;
+    }
 
     public String getNeighborhood() {
         return neighborhood;
@@ -24,13 +29,14 @@ public class ResultObj {
         return url;
     }
 
-    public ResultObj (int medPrice, String marketType, String neighborhood, String lat, String lng, String url) {
+    public ResultObj (int medPrice, String marketType, String neighborhood, String lat, String lng, String url, String gMap) {
         this.medianPrice = medPrice;
         this.marketType = marketType;
         this.neighborhood = neighborhood;
         this.lat = lat;
         this.lng = lng;
         this.url = url;
+        this.gMap = gMap;
     }
 
     public String toString() {

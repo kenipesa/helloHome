@@ -19,6 +19,7 @@
       <table>
         <tr th:each="search : ${searchResults}">
           <td>
+            <img th:src="${search.gMap}"/>
             <a th:text="${search.neighborhood}" th:href="${search.url}"></a><span th:text="${city}"></span>,
             <span
            th:text="${state}"></span>
