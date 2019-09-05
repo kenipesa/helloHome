@@ -1,4 +1,4 @@
-# Hello Home <a name="top"></a>
+# HelloHome! <a name="top"></a>
 
 ### URL
 http://hellohome.us-west-2.elasticbeanstalk.com/
