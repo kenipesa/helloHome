@@ -38,10 +38,10 @@ public class SearchController {
     @PostMapping("/user/results")
     public ModelAndView addSearch(String city, String state, Principal p, ModelMap m, RedirectAttributes redir) {
         ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
-        Searches newSearch = new Searches(city, state, loggedBuyer);
+        Searches newSearch = new Searches(city.toLowerCase(), state.toLowerCase(), loggedBuyer);
         
         if (searchesRepository.findByCityAndStateAndBuyerId(newSearch.getCity(),
-         newSearch.getState(), newSearch.getId()) == null) {
+         newSearch.getState(), newSearch.getBuyer().getId()) == null) {
             loggedBuyer.addSearch(newSearch);
             searchesRepository.save(newSearch);
         }

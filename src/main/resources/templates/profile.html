@@ -73,7 +73,8 @@
 									<input type="hidden" name="city" id="city" th:value="${search.city}" />
 									<input type="hidden" name="state" id="state" th:value="${search.state}" />
 									<button type="submit" class="link-like lightColorLink">
-										<span th:text="${search.city} + ', ' + ${search.state}"></span>
+										<span
+										 th:text="${search.city} + ', ' + ${search.state}"></span>
 									</button>
 								</form>
 							</li>
