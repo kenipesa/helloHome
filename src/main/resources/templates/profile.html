@@ -24,6 +24,24 @@
 			<div th:unless="${currentUser.expense == null}">
 				<p><a href="/user/addExpenses">Update Profile</a></p>
 				
+				<h3>Mortgage Budget</h3>
+				<h4><b>Total Mortgage Budget:</b> $
+					<span class="budget" th:text="${currentUser.totalAffordableMortgage}"></span></h4>
+				<h4><b>Monthly Mortgage Payment:</b> $
+					<span class="budget" th:text="${currentUser.monthlyMortgageBudget}"></span></h4>
+				<div th:if="${currentUser.expensesBelow36Percent >= 0}">
+					<h4><b>Expenses to Income:</b> <br/>You currently spend $<span id="pos"
+					 th:text="${currentUser.expensesBelow36Percent}"></span> less than the recommended monthly budget!<br/>
+						Congratulations, you're in a great place to be able to buy a house!</h4>
+				</div>
+				<div th:unless="${currentUser.expensesBelow36Percent >= 0}">
+					<h4><b>Expenses to Income:</b>
+						<br/>You currently spend $<span id="neg"
+					 th:text="${currentUser.expensesBelow36Percent * -1}"></span> more than the recommended monthly
+						budget!<br/>
+						Before you look to buy a house you should try eliminating the excess spending from your budget.</h4>
+				</div>
+				
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item"><b>Username:</b> <span th:text="${currentUser.username}"></span></li>
 					<li class="list-group-item"><b>First Name:</b> <span th:text="${currentUser.firstName}"></span></li>
@@ -47,16 +65,6 @@
 							<li><b>Misc Payment:</b> $<span th:text="${currentUser.expense.misc}"></span></li>
 						</ul>
 					</li>
-          <li class="list-group-item">
-					<b>Mortgage Budget</b>
-					<ul style="list-style-type: none">
-						<li><b>Monthly Mortgage Budget</b> $
-							<span th:text="${currentUser.monthlyMortgageBudget}"></span></li>
-						<li><b>Total Mortgage Budget</b> $
-							<span th:text="${currentUser.totalAffortableMortgage}"></span></li>
-					</ul>
-
-				</li>
 					<li th:if="${currentUser.searches.size() != 0}" class="list-group-item">
 						<b>Past Searches:</b>
 						<ul th:each="search : ${currentUser.searches}" style="list-style-type: none">

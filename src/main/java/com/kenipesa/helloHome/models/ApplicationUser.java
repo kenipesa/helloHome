@@ -7,6 +7,8 @@ import javax.persistence.*;
 import java.util.Collection;
 import java.util.Set;
 
+import static com.kenipesa.helloHome.libraries.FinanceCalculator.*;
+
 @Entity
 public class ApplicationUser implements UserDetails {
   @Id
@@ -20,7 +22,8 @@ public class ApplicationUser implements UserDetails {
   String firstName;
   String lastName;
   int monthlyMortgageBudget;
-  int totalAffortableMortgage;
+  int totalAffordableMortgage;
+  int expensesBelow36Percent; // returns a positive amount below the 36% rule, negative if above
 
 
   @OneToOne(cascade = CascadeType.ALL)
@@ -56,12 +59,26 @@ public class ApplicationUser implements UserDetails {
     this.monthlyMortgageBudget = monthlyMortgageBudget;
   }
 
-  public int getTotalAffortableMortgage() {
-    return totalAffortableMortgage;
+  public int getTotalAffordableMortgage () {
+    return this.totalAffordableMortgage;
   }
 
-  public void setTotalAffortableMortgage(int totalAffortableMortgage) {
-    this.totalAffortableMortgage = totalAffortableMortgage;
+  public void setTotalAffordableMortgage (int totalAffordableMortgage) {
+    this.totalAffordableMortgage = totalAffordableMortgage;
+  }
+  
+  public void setExpensesBelow36Percent(int annualIncome, int monthlyExpenses) {
+    this.expensesBelow36Percent = isMonthlyDebtLessThan36Percent(annualIncome, monthlyExpenses);
+  }
+  
+  public int getExpensesBelow36Percent() {
+    return this.expensesBelow36Percent;
+  }
+  
+  public void setBudget(int annualIncome, int totalExpenses) {
+    setMonthlyMortgageBudget(calcMonthlyMortgageBudget(annualIncome));
+    setTotalAffordableMortgage(calcAffordableMortgage(getMonthlyMortgageBudget(), 0.04, 30));
+    setExpensesBelow36Percent(annualIncome, totalExpenses);
   }
   
   @Override

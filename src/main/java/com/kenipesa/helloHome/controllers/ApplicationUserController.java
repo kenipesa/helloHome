@@ -1,5 +1,6 @@
 package com.kenipesa.helloHome.controllers;
 
+import com.kenipesa.helloHome.libraries.FinanceCalculator;
 import com.kenipesa.helloHome.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -46,6 +47,7 @@ public class ApplicationUserController {
   public RedirectView createAddExpenses(int annualIncome, int creditPayment, int entertainment, int utilities,
                                         int insurance, int vehicle, int misc, Principal p) {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
+    int totalExpenses = creditPayment + entertainment + utilities + insurance + vehicle + misc;
     Expenses expenses = expensesRepository.findByBuyerId(applicationUser.getId());
     if (expenses == null) {
       expenses = new Expenses(annualIncome, creditPayment, entertainment, utilities, insurance, vehicle, misc,
@@ -59,8 +61,8 @@ public class ApplicationUserController {
       expenses.setInsurance(insurance);
       expenses.setVehicle(vehicle);
       expenses.setMisc(misc);
-      
     }
+    applicationUser.setBudget(annualIncome, totalExpenses);
     expensesRepository.save(expenses);
     return new RedirectView("/user/profile");
   }
