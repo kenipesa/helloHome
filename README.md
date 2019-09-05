@@ -28,7 +28,6 @@ This site is designed to help users who are currently planning on moving by prov
 * [Database Schema](./project-link-files/HelloHome.pdf)
 * [Team Agreement](./project-link-files/team-agreement.md)
 * [User Stories](./project-link-files/user-stories.md)
-* [Presentation](https://docs.google.com/presentation/d/1fHZWB_gRtKqzxWLTYGbFb3cUX5jAzvICHS1_DBxMGAo/edit?usp=sharing)
 
 ### File Structure <a name="files"></a>
 * src/main/java/
