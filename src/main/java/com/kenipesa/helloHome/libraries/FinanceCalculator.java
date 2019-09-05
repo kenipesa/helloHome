@@ -8,21 +8,15 @@ public class FinanceCalculator {
 
 //  Using the 28% rule, calculate the monthly affordable budget of a gross annual income.
     public static int calcMonthlyMortgageBudget(int annualIncome) {
-        int monthlyIncome = FinanceCalculator.calcMonthlyGrossIncome(annualIncome);
+        int monthlyIncome = calcMonthlyGrossIncome(annualIncome);
         return (monthlyIncome * 28) / 100;
     }
 
 //  Using the 36% rule, check if total debt is no more than 36% of monthly income.
-    public static boolean isMonthlyDebtLessThan36Percent(int monthlyIncome, int creditPayment, int entertainment, int utilities,
-                                                         int insurance, int vehicle, int misc) {
-        int totalDebt = creditPayment + entertainment + utilities + insurance + vehicle + misc;
-
-        int value = totalDebt / monthlyIncome * 100;
-        if(value == 36 || value < 36) {
-            return true;
-        } else {
-            return false;
-        }
+    public static int isMonthlyDebtLessThan36Percent(int annualIncome, int totalExpenses) {
+        int monthlyIncome = calcMonthlyGrossIncome(annualIncome);
+        double thirtySixRule = (monthlyIncome * .36);
+        return (int)(thirtySixRule - totalExpenses);
     }
 
 //  Calculate total affordable mortgage, using algorithm found online.
