@@ -18,11 +18,11 @@
 
 			
 			<div th:if="${currentUser.expense == null}">
-				<p><a href="/user/addExpenses">Add expense information</a></p>
+				<p><a href="/user/addExpenses" class="lightColorLink">Add expense information</a></p>
 			</div>
 			
 			<div th:unless="${currentUser.expense == null}">
-				<p><a href="/user/addExpenses">Update Profile</a></p>
+				<p><a href="/user/addExpenses" class="lightColorLink">Update Profile</a></p>
 				
 				<h3>Mortgage Budget</h3>
 				<h4><b>Total Mortgage Budget:</b> $
@@ -72,7 +72,7 @@
 								<form method="POST" action="/user/results">
 									<input type="hidden" name="city" id="city" th:value="${search.city}" />
 									<input type="hidden" name="state" id="state" th:value="${search.state}" />
-									<button type="submit" class="link-like">
+									<button type="submit" class="link-like lightColorLink">
 										<span th:text="${search.city} + ', ' + ${search.state}"></span>
 									</button>
 								</form>

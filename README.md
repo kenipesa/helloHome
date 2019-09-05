@@ -59,7 +59,7 @@
       * [searchResults](./src/main/resources/templates/fragments/searchResults.html)
 * src/test/
   * java/
-    * [HelloHomeApplicationTest](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTest.java)
+    * [HelloHomeApplicationTests](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTests.java)
 
 ### Resources <a name="resources"></a>
 * [Thymeleaf Conditionals](https://www.baeldung.com/spring-thymeleaf-conditionals)
