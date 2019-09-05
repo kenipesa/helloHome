@@ -8,7 +8,8 @@
 * [Resources](#resources)
 
 ### About <a name="about"></a>
-helloHome  
+**helloHome!**
+
 This site is designed to help users who are currently planning on moving by providing budgeting help, a map view of neighborhoods in a city searched by the user and a link to zillow’s page of information about the given neighborhood that includes median home values, the market type and much more.
 
 
@@ -24,6 +25,7 @@ This site is designed to help users who are currently planning on moving by prov
 * [Database Schema](./project-link-files/HelloHome.pdf)
 * [Team Agreement](./project-link-files/team-agreement.md)
 * [User Stories](./project-link-files/user-stories.md)
+* [Presentation](https://docs.google.com/presentation/d/1fHZWB_gRtKqzxWLTYGbFb3cUX5jAzvICHS1_DBxMGAo/edit?usp=sharing)
 
 ### File Structure <a name="files"></a>
 * src/main/java/
@@ -49,7 +51,10 @@ This site is designed to help users who are currently planning on moving by prov
       * [SearchesRepository](./src/main/java/com/kenipesa/helloHome/models/SearchesRepository.java)
 * src/main/resources/
     * static/
+      * [LI-In-Bug](./src/main/resources/static/LI-In-Bug.png)
+      * [Octocat](./src/main/resources/static/Octocat.png)
       * [styles](./src/main/resources/static/styles.css)
+      * [team-picture](./src/main/resources/static/team-picture.jpg)
     * templates/
       * [aboutUs](./src/main/resources/templates/aboutUs.html)
       * [addExpenses](./src/main/resources/templates/addExpenses.html)
@@ -67,6 +72,10 @@ This site is designed to help users who are currently planning on moving by prov
 * src/test/
   * java/
     * [HelloHomeApplicationTests](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTests.java)
+    * [zillowTests](./src/test/java/com/kenipesa/helloHome/zillowTests.java)
+  * java/libraries
+    * [FinanceCalculatorTest](./src/test/java/com/kenipesa/helloHome/libraries/FinanceCalculatorTest.java)
+    * [JsoupTest](./src/test/java/com/kenipesa/helloHome/libraries/JsoupTest.java)
 
 ### Resources <a name="resources"></a>
 * [Thymeleaf Conditionals](https://www.baeldung.com/spring-thymeleaf-conditionals)
@@ -76,5 +85,7 @@ This site is designed to help users who are currently planning on moving by prov
 * [Bootstrap Lux](https://bootswatch.com/lux/)
 * [Bootstrap Grid](https://getbootstrap.com/docs/4.3/layout/grid/#all-breakpoints)
 * [Bootstrap List](https://getbootstrap.com/docs/4.3/components/list-group/#flush)
+* [Money Chimp Mortgage Calculations](http://www.moneychimp.com/articles/finworks/fmmortgage.htm)
+* [Rounding](https://www.geeksforgeeks.org/round-the-given-number-to-nearest-multiple-of-10/)
 
 **[Return to Top](#top)**
