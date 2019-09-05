@@ -21,7 +21,7 @@ This site is designed to help users who are currently planning on moving by prov
 ### Project Links <a name="pLinks"></a>
 * [Trello Board](https://trello.com/b/FJsnmXIV/kenipesa)
 * [Wireframe](https://app.moqups.com/RQTQyO8RUn/view/page/ad64222d5)
-* [Database Schema](./project-link-files/Database_Schema.png)
+* [Database Schema](./project-link-files/HelloHome.pdf)
 * [Team Agreement](./project-link-files/team-agreement.md)
 * [User Stories](./project-link-files/user-stories.md)
 
