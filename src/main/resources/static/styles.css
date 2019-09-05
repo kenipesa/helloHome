@@ -1,0 +1,80 @@
+body {
+  background-color: #224241 !important;
+}
+
+.jumbotron {
+  background: #CCCC !important;
+}
+
+h1 {
+  color: #919A6D !important;
+}
+
+h3 {
+  color: #919A6D !important;
+}
+
+h4 {
+  color: rgb(121, 113, 91) !important;
+}
+
+.lightColorLink {
+  color: whitesmoke !important;
+}
+
+#searchResults {
+  justify-content: center;
+  padding: 1% !important;
+}
+
+.searchCard {
+  text-decoration: none !important;
+}
+
+#searchHead {
+  color: whitesmoke !important;
+  font-size: 1.1em;
+}
+
+.budget {
+  color: rgb(187, 176, 117) !important;
+}
+
+#pos {
+  color: green;
+}
+
+#neg {
+  color: red;
+}
+
+.btn-primary {
+  color: #919AA1 !important;
+  background-color: #343a40 !important;
+  border-color: #343a40 !important;
+}
+
+.navbar-dark .navbar-brand {
+  color: #919A6D !important;
+}
+
+.link-like {
+  background-color: #224241;
+  border-color: #224241;
+  color: #1a1a1a;
+}
+
+.bg-primary {
+  background-color: #193130 !important;
+}
+
+#team-pic {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2%;
+}
+
+.list-group-item {
+  background-color: #224241 !important;
+}

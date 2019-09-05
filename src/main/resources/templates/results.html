@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <title>HelloHome! - Results</title>
+    <link
+     href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css"
+     rel="stylesheet"
+     integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt"
+     crossorigin="anonymous"
+    >
+    <link href="/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  
+  <body>
+    <div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
+    <main class="container">
+      <h3>Here are all the neighborhoods in your search area.</h3>
+      <div class="row" id="searchResults">
+        <div th:each="search : ${searchResults}">
+          <a th:href="${search.url}" class="searchCard" target="_blank">
+            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+              <div class="card-header">
+                <h4 id="searchHead" th:text="${search.neighborhood}"></h4>
+              </div>
+              <div class="card-body">
+                <img th:src="${search.gMap}">
+                <p class="card-text">
+                  <span th:text="${city}"></span>,
+                  <span th:text="${state}"></span>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
