@@ -8,6 +8,8 @@
 * [Resources](#resources)
 
 ### About <a name="about"></a>
+helloHome  
+This site is designed to help users who are currently planning on moving by providing budgeting help, a map view of neighborhoods in a city searched by the user and a link to zillow’s page of information about the given neighborhood that includes median home values, the market type and much more.
 
 
 ### Members <a name="members"></a>
