@@ -40,8 +40,8 @@ public class SearchController {
         ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
         Searches newSearch = new Searches(city, state, loggedBuyer);
         
-        if (searchesRepository.findByCityAndState(newSearch.getCity(),
-         newSearch.getState()) == null) {
+        if (searchesRepository.findByCityAndStateAndBuyerId(newSearch.getCity(),
+         newSearch.getState(), newSearch.getId()) == null) {
             loggedBuyer.addSearch(newSearch);
             searchesRepository.save(newSearch);
         }
