@@ -89,6 +89,7 @@ public class ZillowAPILib {
         URL.append("&center=" + latLng);
         URL.append("&zoom=12");
         URL.append("&size=250x250");
+        URL.append("&markers=" + latLng);
         return URL.toString();
     }
 
