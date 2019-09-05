@@ -18,6 +18,10 @@ h4 {
   color: rgb(121, 113, 91) !important;
 }
 
+.lightColorLink {
+  color: whitesmoke !important;
+}
+
 #searchResults {
   justify-content: center;
   padding: 1% !important;
