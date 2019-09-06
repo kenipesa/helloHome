@@ -17,22 +17,27 @@
     
     <main class="container">
       <h3>Here are all the neighborhoods in your search area.</h3>
-      <div class="row" id="searchResults">
-        <div th:each="search : ${searchResults}">
-          <a th:href="${search.url}" class="searchCard" target="_blank">
-            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-              <div class="card-header">
-                <h4 id="searchHead" th:text="${search.neighborhood}"></h4>
+      <div th:if="${size == 0}">
+        <h4>There are no results for neighborhoods in the area you search, please try a different location.</h4>
+      </div>
+      <div th:unless="${size == 0}">
+        <div class="row" id="searchResults">
+          <div th:each="search : ${searchResults}">
+            <a th:href="${search.url}" class="searchCard" target="_blank">
+              <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                  <h4 id="searchHead" th:text="${search.neighborhood}"></h4>
+                </div>
+                <div class="card-body">
+                  <img th:src="${search.gMap}">
+                  <p class="card-text">
+                    <span th:text="${city}"></span>,
+                    <span th:text="${state}"></span>
+                  </p>
+                </div>
               </div>
-              <div class="card-body">
-                <img th:src="${search.gMap}">
-                <p class="card-text">
-                  <span th:text="${city}"></span>,
-                  <span th:text="${state}"></span>
-                </p>
-              </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </main>
