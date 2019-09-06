@@ -11,6 +11,7 @@
 		>
 		<link href="/styles.css" rel="stylesheet">
 	</head>
+	
 	<body>
 		<div th:if="${currentUser.expense != null}">
 			<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>

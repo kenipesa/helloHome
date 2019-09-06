@@ -11,8 +11,10 @@
 		>
 		<link href="/styles.css" rel="stylesheet">
 	</head>
+	
 	<body>
 		<div th:replace="fragments/header :: loggedInHeader(user=${currentUser})"></div>
+		
 		<main class="container">
 			<h1>Profile</h1>
 
@@ -73,8 +75,7 @@
 									<input type="hidden" name="city" id="city" th:value="${search.city}" />
 									<input type="hidden" name="state" id="state" th:value="${search.state}" />
 									<button type="submit" class="link-like lightColorLink">
-										<span
-										 th:text="${search.city} + ', ' + ${search.state}"></span>
+										<span th:text="${search.city} + ', ' + ${search.state}"></span>
 									</button>
 								</form>
 							</li>
