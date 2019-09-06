@@ -77,6 +77,8 @@ This site is designed to help users who are currently planning on moving by prov
   * java/libraries
     * [FinanceCalculatorTest](./src/test/java/com/kenipesa/helloHome/libraries/FinanceCalculatorTest.java)
     * [JsoupTest](./src/test/java/com/kenipesa/helloHome/libraries/JsoupTest.java)
+  * Note!
+    * To run the tests loacally, users are required to have Zillow API key and a Google static maps API key in their enviornmental variables as API_KEY and GMAP_KEY respectivly. 
 
 ### Resources <a name="resources"></a>
 * [Thymeleaf Conditionals](https://www.baeldung.com/spring-thymeleaf-conditionals)
