@@ -25,7 +25,7 @@ public class zillowTests {
             System.err.println(e);
         }
         // Test for ok status code
-        Assert.hasText("<200", test.toString());
+        Assert.hasText("{\"request", test.toString());
     }
 
     @Test public void zillowTestFilterList() {
