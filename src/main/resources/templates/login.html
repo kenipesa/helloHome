@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta charset="UTF-8">
-		<title>HelloHome! - login</title>
+		<title>HelloHome! - Login</title>
 		<link
 		 href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css"
 		 rel="stylesheet"
@@ -11,8 +11,10 @@
 		>
 		<link href="/styles.css" rel="stylesheet">
 	</head>
+	
 	<body>
 		<div th:replace="fragments/header :: notLoggedInHeader"></div>
+		
 		<main class="container">
 			<h1>Please login to your HelloHome! account</h1>
 			<form method="POST" action="/login">

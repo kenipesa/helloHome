@@ -63,6 +63,7 @@ public class SearchController {
         m.addAttribute("buyer", p);
         List<ResultObj> results = ZillowAPILib.getFilteredResults(ZillowAPILib.getNeighborhood(m.get("state").toString(), m.get("city").toString()));
         m.addAttribute("searchResults", results);
+        m.addAttribute("size", results.size());
         return "results";
     }
 }

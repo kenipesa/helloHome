@@ -70,7 +70,6 @@ This site is designed to help users who are currently planning on moving by prov
     * templates/fragments/
       * [aboutCard](./src/main/resources/templates/fragments/aboutCard.html)
       * [header](./src/main/resources/templates/fragments/header.html)
-      * [searchResults](./src/main/resources/templates/fragments/searchResults.html)
 * src/test/
   * java/
     * [HelloHomeApplicationTests](./src/test/java/com/kenipesa/helloHome/HelloHomeApplicationTests.java)

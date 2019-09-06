@@ -11,12 +11,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ZillowAPILib {
     public static JSONObject getNeighborhood(String state, String city) {
         // Variables
         JSONObject xmlJSONObj = null;
-        String childType = "neighborhood";
 
         // Set up for api request
         RestTemplate restTemplate = new RestTemplate();
@@ -33,12 +33,9 @@ public class ZillowAPILib {
         HttpEntity<?> entity = new HttpEntity<>(headers);
         // Get the response
         HttpEntity<String> response = restTemplate.getForEntity(builder.build().encode().toUri(), String.class);
-//        System.out.println(response.getBody());
 
         try{ // Convert XML Response to JSON
-            xmlJSONObj = XML.toJSONObject(response.getBody().toString());
-//            String jsonPrettyPrintString = xmlJSONObj.toString(4);
-//            System.out.println(jsonPrettyPrintString);
+            xmlJSONObj = XML.toJSONObject(Objects.requireNonNull(response.getBody()));
         }
         catch(Exception e) {
             System.err.println(e);
@@ -52,29 +49,41 @@ public class ZillowAPILib {
         JSONObject unFiltered = webResponse.getJSONObject("RegionChildren:regionchildren")
                     .getJSONObject("response")
                     .getJSONObject("list");
-        //TODO: Stretch: Calculate affordability
         int ourBudget = -1;
         int urlPrice = -1;
         String marketType = "Cold";
-        String url;
+        
+        int count = unFiltered.getInt("count");
     
-        JSONArray tempApiArr = unFiltered.getJSONArray("region");
-
-        for(int i = 0; i < tempApiArr.length(); i++) {
-
-            //url = unFiltered.getJSONArray("region").getJSONObject(i).get("url").toString();
-            // TODO: Stretch: Scrape site, compare median price to budget.
-            //urlPrice = scrapeURL(url);
-            String gMap = ZillowAPILib.getGMap(tempApiArr.getJSONObject(i).get("latitude").toString(), tempApiArr.getJSONObject(i).get("longitude").toString());
+        if (count > 1) {
+            JSONArray tempApiArr = unFiltered.getJSONArray("region");
+            for(int i = 0; i < tempApiArr.length(); i++) {
+                String gMap = ZillowAPILib.getGMap(tempApiArr.getJSONObject(i).get("latitude").toString(), tempApiArr.getJSONObject(i).get("longitude").toString());
+                if(urlPrice <= ourBudget) {
+                    ResultObj temp = new ResultObj(
+                     urlPrice,
+                     marketType,
+                     tempApiArr.getJSONObject(i).get("name").toString(),
+                     tempApiArr.getJSONObject(i).get("latitude").toString(),
+                     tempApiArr.getJSONObject(i).get("longitude").toString(),
+                     tempApiArr.getJSONObject(i).get("url").toString(),
+                     gMap
+                    );
+                    resList.add(temp);
+                }
+            }
+        } else if (count == 1) {
+            String gMap = ZillowAPILib.getGMap(unFiltered.getJSONObject("region").get("latitude").toString(),
+             unFiltered.getJSONObject("region").get("longitude").toString());
             if(urlPrice <= ourBudget) {
                 ResultObj temp = new ResultObj(
-                        urlPrice,
-                        marketType,
-                        tempApiArr.getJSONObject(i).get("name").toString(),
-                        tempApiArr.getJSONObject(i).get("latitude").toString(),
-                        tempApiArr.getJSONObject(i).get("longitude").toString(),
-                        tempApiArr.getJSONObject(i).get("url").toString(),
-                        gMap
+                 urlPrice,
+                 marketType,
+                 unFiltered.getJSONObject("region").get("name").toString(),
+                 unFiltered.getJSONObject("region").get("latitude").toString(),
+                 unFiltered.getJSONObject("region").get("longitude").toString(),
+                 unFiltered.getJSONObject("region").get("url").toString(),
+                 gMap
                 );
                 resList.add(temp);
             }
@@ -85,11 +94,11 @@ public class ZillowAPILib {
     public static String getGMap(String lat, String lng) {
         StringBuilder URL = new StringBuilder();
         String latLng = lat + "," + lng;
-        URL.append("https://maps.googleapis.com/maps/api/staticmap?key=" + System.getenv("GMAP_KEY"));
-        URL.append("&center=" + latLng);
+        URL.append("https://maps.googleapis.com/maps/api/staticmap?key=").append(System.getenv("GMAP_KEY"));
+        URL.append("&center=").append(latLng);
         URL.append("&zoom=12");
         URL.append("&size=250x250");
-        URL.append("&markers=" + latLng);
+        URL.append("&markers=").append(latLng);
         return URL.toString();
     }
 
