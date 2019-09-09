@@ -1,6 +1,6 @@
 package com.kenipesa.helloHome.models;
 
-import com.kenipesa.helloHome.libraries.FinanceCalculator;
+//Code Review: removed unused import call
 
 import javax.persistence.*;
 
@@ -34,6 +34,19 @@ public class Expenses {
         this.vehicle = vehicle;
         this.misc = misc;
         this.buyer = buyer;
+    }
+    
+    //Code Review: added updateAllExpenses to clean up @PostMapping
+    public void updateAllExpenses(int annualIncome, int creditPayment, int entertainment, int utilities, int insurance,
+                                  int vehicle,
+                                  int misc) {
+        setAnnualIncome(annualIncome);
+        setCreditPayment(creditPayment);
+        setEntertainment(entertainment);
+        setUtilities(utilities);
+        setInsurance(insurance);
+        setVehicle(vehicle);
+        setMisc(misc);
     }
 
     public Long getId() {

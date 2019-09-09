@@ -27,8 +27,8 @@ public class FinanceCalculator {
         double roundedRate = Math.round(rate * scale) / scale;
         int months = yearsOfLoan * 12;
         int value = (int)((float)( monthlyMortgageBudget * (Math.pow(1 + roundedRate, months) - 1) / ((float)(Math.pow((1 + roundedRate), months) * roundedRate))));
-        value = round(value);
-        return value;
+        //Code Review: Removed redundant call to value
+        return round(value);
     }
 
 //    Helper function to round a number to the nearest ten thousandth.
