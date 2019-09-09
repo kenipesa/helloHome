@@ -1,6 +1,6 @@
 package com.kenipesa.helloHome.controllers;
 
-import com.kenipesa.helloHome.libraries.FinanceCalculator;
+//Code Review: removed unused import call
 import com.kenipesa.helloHome.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -54,13 +54,8 @@ public class ApplicationUserController {
        applicationUser);
       applicationUser.setExpense(expenses);
     } else {
-      expenses.setAnnualIncome(annualIncome);
-      expenses.setCreditPayment(creditPayment);
-      expenses.setEntertainment(entertainment);
-      expenses.setUtilities(utilities);
-      expenses.setInsurance(insurance);
-      expenses.setVehicle(vehicle);
-      expenses.setMisc(misc);
+      //Code Review: added method update all expenses
+      expenses.updateAllExpenses(annualIncome, creditPayment, entertainment, utilities, insurance, vehicle, misc);
     }
     applicationUser.setBudget(annualIncome, totalExpenses);
     expensesRepository.save(expenses);

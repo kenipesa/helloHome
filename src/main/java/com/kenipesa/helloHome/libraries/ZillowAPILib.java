@@ -30,7 +30,8 @@ public class ZillowAPILib {
                 .queryParam("city", city)
                 .queryParam("childtype", "neighborhood");
 
-        HttpEntity<?> entity = new HttpEntity<>(headers);
+        //Code Review: Removed unused variable
+
         // Get the response
         HttpEntity<String> response = restTemplate.getForEntity(builder.build().encode().toUri(), String.class);
 
@@ -58,7 +59,8 @@ public class ZillowAPILib {
         if (count > 1) {
             JSONArray tempApiArr = unFiltered.getJSONArray("region");
             for(int i = 0; i < tempApiArr.length(); i++) {
-                String gMap = ZillowAPILib.getGMap(tempApiArr.getJSONObject(i).get("latitude").toString(), tempApiArr.getJSONObject(i).get("longitude").toString());
+                //Code Review: removed package name from method call
+                String gMap = getGMap(tempApiArr.getJSONObject(i).get("latitude").toString(), tempApiArr.getJSONObject(i).get("longitude").toString());
                 if(urlPrice <= ourBudget) {
                     ResultObj temp = new ResultObj(
                      urlPrice,
@@ -73,7 +75,8 @@ public class ZillowAPILib {
                 }
             }
         } else if (count == 1) {
-            String gMap = ZillowAPILib.getGMap(unFiltered.getJSONObject("region").get("latitude").toString(),
+            //Code Review: removed package name from method call
+            String gMap = getGMap(unFiltered.getJSONObject("region").get("latitude").toString(),
              unFiltered.getJSONObject("region").get("longitude").toString());
             if(urlPrice <= ourBudget) {
                 ResultObj temp = new ResultObj(
@@ -93,7 +96,9 @@ public class ZillowAPILib {
 
     public static String getGMap(String lat, String lng) {
         StringBuilder URL = new StringBuilder();
-        String latLng = lat + "," + lng;
+        //Code Review: changed latLng to a string builder to reduce Space Complexity
+        StringBuilder latLng = new StringBuilder();
+        latLng.append(lat).append(",").append(lng);
         URL.append("https://maps.googleapis.com/maps/api/staticmap?key=").append(System.getenv("GMAP_KEY"));
         URL.append("&center=").append(latLng);
         URL.append("&zoom=12");

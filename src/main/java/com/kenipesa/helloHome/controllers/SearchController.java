@@ -1,12 +1,10 @@
 package com.kenipesa.helloHome.controllers;
 
 import com.kenipesa.helloHome.libraries.ResultObj;
-import com.kenipesa.helloHome.libraries.ZillowAPILib;
 import com.kenipesa.helloHome.models.ApplicationUser;
 import com.kenipesa.helloHome.models.ApplicationUserRepository;
 import com.kenipesa.helloHome.models.Searches;
 import com.kenipesa.helloHome.models.SearchesRepository;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +16,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
 import java.util.List;
+
+//Code Review: added import for ZillowAPILib methods
+import static com.kenipesa.helloHome.libraries.ZillowAPILib.*;
 
 @Controller
 public class SearchController {
@@ -31,7 +32,7 @@ public class SearchController {
     public String makeSearches(Principal p, Model m) {
         ApplicationUser loggedBuyer = applicationUserRepository.findByUsername(p.getName());
         m.addAttribute("currentUser" , loggedBuyer);
-        m.addAttribute("user", p);
+        //Code Review: remove "buyer" attribute - never used
         return "searches";
     }
 
@@ -46,7 +47,7 @@ public class SearchController {
             searchesRepository.save(newSearch);
         }
     
-        m.addAttribute("buyer", p);
+        //Code Review: remove "buyer" attribute - never used
         m.addAttribute("city", city);
         m.addAttribute("state", state);
         ModelAndView modelAndView = new ModelAndView();
@@ -59,9 +60,10 @@ public class SearchController {
     @GetMapping("/user/results")
     public String getSearchResult(Principal p, ModelMap m) {
         ApplicationUser buyer = applicationUserRepository.findByUsername(p.getName());
+        //Code Review: remove package tag for static methods, move to import
+        List<ResultObj> results = getFilteredResults(getNeighborhood(m.get("state").toString(), m.get("city").toString()));
         m.addAttribute("currentUser", buyer);
-        m.addAttribute("buyer", p);
-        List<ResultObj> results = ZillowAPILib.getFilteredResults(ZillowAPILib.getNeighborhood(m.get("state").toString(), m.get("city").toString()));
+        //Code Review: remove "buyer" attribute - never used
         m.addAttribute("searchResults", results);
         m.addAttribute("size", results.size());
         return "results";
