@@ -66,4 +66,5 @@ public class SearchController {
         m.addAttribute("size", results.size());
         return "results";
     }
+    //Delete the past searches in user profile page
 }

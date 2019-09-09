@@ -30,7 +30,7 @@ public class ApplicationUser implements UserDetails {
   @JoinColumn(unique = true)
   Expenses expense;
 
-  @OneToMany(fetch = FetchType.EAGER, mappedBy = "buyer")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "buyer", cascade = CascadeType.ALL)
   Set<Searches> searches;
   
   public ApplicationUser() {}

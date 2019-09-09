@@ -9,7 +9,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -72,5 +74,12 @@ public class ApplicationUserController {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
     m.addAttribute("currentUser", applicationUser);
     return "profile";
+  }
+
+  //Delete application user
+  @DeleteMapping("/user/profile")
+  public RedirectView deleteUser(long currentUserId) {
+    applicationUserRepository.deleteById(currentUserId);
+    return new RedirectView("/register");
   }
 }

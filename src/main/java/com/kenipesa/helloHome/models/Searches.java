@@ -11,7 +11,7 @@ public class Searches {
     String city;
     String state;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     ApplicationUser buyer;
 
     public Searches(String city, String state, ApplicationUser buyer) {
