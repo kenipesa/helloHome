@@ -26,7 +26,8 @@ public class FinanceCalculator {
         float rate = (float) (interestRate / 12);
         double roundedRate = Math.round(rate * scale) / scale;
         int months = yearsOfLoan * 12;
-        int value = (int)((float)( monthlyMortgageBudget * (Math.pow(1 + roundedRate, months) - 1) / ((float)(Math.pow((1 + roundedRate), months) * roundedRate))));
+        int value = (int)((float)( monthlyMortgageBudget * (Math.pow(1 + roundedRate, months) - 1) /
+                ((float)(Math.pow((1 + roundedRate), months) * roundedRate))));
         value = round(value);
         return value;
     }

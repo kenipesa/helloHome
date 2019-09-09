@@ -25,6 +25,14 @@
 			
 			<div th:unless="${currentUser.expense == null}">
 				<p><a href="/user/addExpenses" class="lightColorLink">Update Profile</a></p>
+				<form method="post" action="/user/profile">
+					<input type="hidden" name="_method" value="DELETE"/>
+					<input type="hidden" name="curentUserId" th:value="currentUser.id"/>
+<!--					<p><a href="/register" class="lightColorLink">Delete Profile</a></p>-->
+					<input type="submit" value="Delete Profile"/>
+				</form>
+
+
 				
 				<h3>Mortgage Budget</h3>
 				<h4><b>Total Mortgage Budget:</b> $
