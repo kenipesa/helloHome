@@ -21,16 +21,13 @@ public class ZillowAPILib {
         // Set up for api request
         RestTemplate restTemplate = new RestTemplate();
         String zillowURL = "http://www.zillow.com/webservice/GetRegionChildren.htm";
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+        // A few pieces of dead code in here, it seems!
         // Build URi and add query parameters
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(zillowURL)
                 .queryParam("zws-id", System.getenv("API_KEY"))
                 .queryParam("state", state)
                 .queryParam("city", city)
                 .queryParam("childtype", "neighborhood");
-
-        HttpEntity<?> entity = new HttpEntity<>(headers);
         // Get the response
         HttpEntity<String> response = restTemplate.getForEntity(builder.build().encode().toUri(), String.class);
 
@@ -49,46 +46,38 @@ public class ZillowAPILib {
         JSONObject unFiltered = webResponse.getJSONObject("RegionChildren:regionchildren")
                     .getJSONObject("response")
                     .getJSONObject("list");
+        // so we have these two numbers set as -1 and then compare them against each other in that loop?
+        // this smells like leftover code from scraping that wasn't rebuilt well
+        // after realizing that scraping wouldn't work.
+
+        // I think you can get rid of these vars and the conditionals.
         int ourBudget = -1;
         int urlPrice = -1;
         String marketType = "Cold";
         
         int count = unFiltered.getInt("count");
-    
+
+        // A way to DRY out this logic would be to create a helper that took in the object.
         if (count > 1) {
             JSONArray tempApiArr = unFiltered.getJSONArray("region");
             for(int i = 0; i < tempApiArr.length(); i++) {
-                String gMap = ZillowAPILib.getGMap(tempApiArr.getJSONObject(i).get("latitude").toString(), tempApiArr.getJSONObject(i).get("longitude").toString());
-                if(urlPrice <= ourBudget) {
-                    ResultObj temp = new ResultObj(
-                     urlPrice,
-                     marketType,
-                     tempApiArr.getJSONObject(i).get("name").toString(),
-                     tempApiArr.getJSONObject(i).get("latitude").toString(),
-                     tempApiArr.getJSONObject(i).get("longitude").toString(),
-                     tempApiArr.getJSONObject(i).get("url").toString(),
-                     gMap
-                    );
-                    resList.add(temp);
-                }
+                resList.add(toResultObj(tempApiArr.getJSONObject(i)));
             }
         } else if (count == 1) {
-            String gMap = ZillowAPILib.getGMap(unFiltered.getJSONObject("region").get("latitude").toString(),
-             unFiltered.getJSONObject("region").get("longitude").toString());
-            if(urlPrice <= ourBudget) {
-                ResultObj temp = new ResultObj(
-                 urlPrice,
-                 marketType,
-                 unFiltered.getJSONObject("region").get("name").toString(),
-                 unFiltered.getJSONObject("region").get("latitude").toString(),
-                 unFiltered.getJSONObject("region").get("longitude").toString(),
-                 unFiltered.getJSONObject("region").get("url").toString(),
-                 gMap
-                );
-                resList.add(temp);
-            }
+            resList.add(toResultObj(unFiltered.getJSONObject("region")));
         }
         return resList;
+    }
+
+    public static ResultObj toResultObj(JSONObject obj) {
+        String gMap = getGMap(obj.get("latitude").toString(), obj.get("longitude").toString());
+        return new ResultObj(
+                obj.get("name").toString(),
+                obj.get("latitude").toString(),
+                obj.get("longitude").toString(),
+                obj.get("url").toString(),
+                gMap
+        );
     }
 
     public static String getGMap(String lat, String lng) {

@@ -8,6 +8,11 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 
+// nitpick: class names should always be capitalized, and the test structure
+// should match the class structure (so this should be in libraries).
+
+// Actually, reading through them, the second method isn't a test at all, as it doesn't assert anything!
+// The first one has a single assertion that doesn't match the comment above it.
 public class zillowTests {
 
     @Test public void zillowTestGetRegChildren() {

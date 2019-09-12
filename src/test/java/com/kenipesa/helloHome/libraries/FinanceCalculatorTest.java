@@ -8,13 +8,16 @@ import static org.junit.Assert.*;
 
 public class FinanceCalculatorTest {
 
+    // All of these should use assertEquals, not assertTrue, and IntelliJ even highlights them to tell you that.
+    // They should also include helpful messages, and also some explanation of why the expected answer is what it is!
     @Test
     public void calcMonthlyMortgageBudgetTest() {
-        assertTrue(FinanceCalculator.calcMonthlyMortgageBudget(80000) == 1866);
+        assertEquals(1866, FinanceCalculator.calcMonthlyMortgageBudget(80000));
     }
 
     @Test
     public void isMonthlyDebtLessThan36PercentTest() {
+
         // 36% debt returns 0.
         assertTrue(FinanceCalculator.isMonthlyDebtLessThan36Percent(100000, 3000) == 0);
         // Less than 36% debt returns positive integer.

@@ -1,4 +1,6 @@
 package com.kenipesa.helloHome.libraries;
+// nitpick: I would rather this be called "utilities" or similar, only because
+// libraries implies that they're packaged for standalone use, as a dependency.
 
 public class FinanceCalculator {
 
@@ -13,6 +15,8 @@ public class FinanceCalculator {
     }
 
 //  Using the 36% rule, check if total debt is no more than 36% of monthly income.
+    // Any method that starts with the word "is", I expect to return a boolean.
+    // It seriously threw me off that this returns an int!
     public static int isMonthlyDebtLessThan36Percent(int annualIncome, int totalExpenses) {
         int monthlyIncome = calcMonthlyGrossIncome(annualIncome);
         double thirtySixRule = (monthlyIncome * .36);
@@ -31,7 +35,7 @@ public class FinanceCalculator {
         return value;
     }
 
-//    Helper function to round a number to the nearest ten thousandth.
+//    Helper function to round a number to the nearest ten thousand.
 //    Reference: https://www.geeksforgeeks.org/round-the-given-number-to-nearest-multiple-of-10/
     private static int round(int n) {
         // Smaller multiple

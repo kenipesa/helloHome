@@ -2,6 +2,8 @@ package com.kenipesa.helloHome.models;
 
 import javax.persistence.*;
 
+// I really dislike using plural class names for something that's singular!
+// This should be called Search, because an instance represents a single search.
 @Entity
 public class Searches {
     @Id
