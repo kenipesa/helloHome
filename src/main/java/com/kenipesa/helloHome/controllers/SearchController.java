@@ -49,6 +49,13 @@ public class SearchController {
         m.addAttribute("buyer", p);
         m.addAttribute("city", city);
         m.addAttribute("state", state);
+        // interesting--you're actively avoiding following good REST convention here!
+        // It's best if a get request to a particular route always returns the same
+        // content, which is why we usually put the ID in the route instead of
+        // storing it on the server side. The fact that right now the
+        // /user/results route shows me different things depending on which link
+        // I clicked means that, for example, I can't save one search in my bookmarks.
+        // If I try to, I get an error when I visit that page.
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:results");
         redir.addFlashAttribute("city", city);
@@ -56,6 +63,8 @@ public class SearchController {
         return modelAndView;
     }
 
+    // Following from above, I'd prefer if this route were more like
+    // GET /searches/{id} and then loaded that search's results.
     @GetMapping("/user/results")
     public String getSearchResult(Principal p, ModelMap m) {
         ApplicationUser buyer = applicationUserRepository.findByUsername(p.getName());

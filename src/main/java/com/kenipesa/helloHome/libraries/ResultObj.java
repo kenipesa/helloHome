@@ -39,6 +39,14 @@ public class ResultObj {
         this.gMap = gMap;
     }
 
+    public ResultObj (String neighborhood, String lat, String lng, String url, String gMap) {
+        this.neighborhood = neighborhood;
+        this.lat = lat;
+        this.lng = lng;
+        this.url = url;
+        this.gMap = gMap;
+    }
+
     public String toString() {
         StringBuilder toRet = new StringBuilder();
         toRet.append("For the neighborhood " + this.neighborhood + "\n");

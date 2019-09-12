@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public class Jsoup {
 
+    // Since this code isn't used in your application, it should either be removed
+    // or clearly stated that this is dead code.
     public static String getNeighborhoodMedianPrice(String url) throws IOException {
         String medianPrice = null;
 

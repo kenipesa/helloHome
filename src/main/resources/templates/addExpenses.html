@@ -20,16 +20,13 @@
 		<main class="container">
 			<h1><span th:text="${currentUser.firstName}"></span> please enter your monthly expenses:</h1>
 			<form method="POST" action="/user/addExpenses">
-				<div class="form-group" th:if="${currentUser.expense == null}">
+				<!-- I'm so glad this is a single template with some slight differences! My tiny modification would be to move the label out and put the value in the user by default. -->
+				<!-- Using the empty string for the value means it'll still show the placeholder for users who don't have expenses yet. -->
+				<div class="form-group">
 					<label for="annualIncome">Annual Income</label>
-					<input type="number" name="annualIncome" class="form-control" id="annualIncome" placeholder="annual income">
+					<input type="number" name="annualIncome" class="form-control" id="annualIncome" placeholder="annual income" th:value="${currentUser.expense == null ? '' : currentUser.expense.annualIncome}">
 				</div>
-				<div class="form-group" th:unless="${currentUser.expense == null}">
-					<label for="annualIncome2">Annual Income</label>
-					<input type="number" name="annualIncome" class="form-control" id="annualIncome2"
-					       th:value="${currentUser.expense.annualIncome}">
-				</div>
-				
+				<!-- And you could repeat that for the rest of these labels/inputs, cutting the length of this file in half. -->
 				<div class="form-group" th:if="${currentUser.expense == null}">
 					<label for="creditPayment">Credit Card Payment</label>
 					<input type="number" name="creditPayment" class="form-control" id="creditPayment" placeholder="credit card payment">
@@ -93,7 +90,8 @@
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</main>
-		
+
+		<!-- Since these show up at the bottom of most of your pages, I wish they were in a fragment! -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
